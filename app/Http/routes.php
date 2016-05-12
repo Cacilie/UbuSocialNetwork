@@ -49,6 +49,22 @@ Route::post('feed/getPost','FeedController@get_post_follows');
 Route::post('feed/info','FeedController@get_info');
 Route::post('feed/codes','FeedController@get_codes');
 
+// Chat rooms
+Route::get('/api/chat-rooms', array('uses' => 'ChatRoomController@getAll'));
+Route::get('/api/chat-rooms/{chatRoom}', array('uses' => 'ChatRoomController@show'));
+Route::post('/api/chat-rooms', array('uses' => 'ChatRoomController@create'));
+
+// Messages api
+Route::get('/api/messages/{chatRoom}', array('uses' => 'MessageController@getByChatRoom'));
+Route::post('/api/messages/{chatRoom}', array('uses' => 'MessageController@createInChatRoom'));
+Route::get('/api/messages/{lastMessageId}/{chatRoom}', array('uses' => 'MessageController@getUpdates'));
+
+// Users api
+Route::get('/api/users/login/user1', array('uses' => 'UserController@loginUser1'));
+Route::get('/api/users/login/user2', array('uses' => 'UserController@loginUser2'));
+
+Route::model('chatRoom', 'ChatRoom');
+
 
 Route::group(['middleware' => ['web']], function () {
     //

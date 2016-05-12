@@ -1,0 +1,102 @@
+<div class="row">
+	<div class="col-md-12">
+		<div style="height:400px; overflow-y:auto">
+			
+			<div class="media" ng-repeat="message in messages">
+				<div class="media-body">
+					<h4 class="media-heading">{{ message.user.username }}</h4>
+					<p>{{ message.body }}</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="col-md-12">
+		<form action="" ng-submit="createMessage(chatRoom, message)">
+			<textarea rows="10" class="form-control" ng-model="message.body" placeholder="Enter your message"></textarea>
+			<button class="btn btn-primary">Send</button>
+		</form>
+	</div>
+</div>
+
+<header>
+    <nav class="navbar navbar-fixed-top navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1" aria-expanded="true">
+            <span class="sr-only">Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"> <span><img src="img/uvu.png" align="center" width="50" height="25"/></span></script></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-1">
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group" >
+              <input type="text" class="form-control" placeholder="Buscar">
+            </div>
+            <button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span></button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="home"><span class="glyphicon glyphicon-home"></span></a></li>
+            <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="perfil.html"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
+                <li><a href="configuracion.html"><span class="glyphicon glyphicon-wrench"></span> Opciones</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#"><span class=" glyphicon glyphicon-off"></span> Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  </header>
+  
+  
+
+<form class="navbar-form navbar-left" role="search">
+<button class="btn btn-default" type="submit">  <span class="glyphicon glyphicon-plus" ></span> </button>
+<input type="text" class="form-control" maxlength="100" placeholder="Buscar"> 
+<button type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-search"></span></button>
+
+
+<div  style="margi: -17px; width: 290px;">
+<br>
+  <ul class="list-group">
+  <li class="list-group-item"><a herf="perfil.html"><img class="media-object img-rounded" width="32" height="32" src="img/ed3.jpg" alt="..." ><strong>Eddie Lozano</strong></a><br>Hola como estas?</li>
+	<li class="list-group-item"><a herf="perfil.html"><img class="media-object img-rounded" width="32" height="32" src="img/ed3.jpg" alt="..." ><strong>Edgar Arroyo</strong></a><br>Holaaa!</li>
+	<li class="list-group-item"><a herf="perfil.html"><img class="media-object img-rounded" width="32" height="32" src="img/ed3.jpg" alt="..." ><strong>Lucero Moran</strong></a><br> :( </li>
+	</ul>
+	</div>	
+	</form>
+  
+
+
+<div style="margin-right: -17px; width: 600px; margin-left: 350px; margin-top: 60px;">
+
+<div class="panel panel-default" >
+  <div class="panel-heading">
+  <a href="perfil.html">
+  <h4 class="media-heading"><strong>Eddie Lozano</strong></a></h4>
+  </div>
+ 
+  <ul class="list-group">
+	<li class="list-group-item"><a herf="perfil.html"><img class="media-object img-rounded" width="32" height="32" src="img/ed3.jpg" alt="..." ><strong>Eddie Lozano</strong></a><br>Hola como estas?</li>
+	<li class="list-group-item"><a herf="perfil.html"><img class="media-object img-rounded" width="32" height="32" src="img/ed3.jpg" alt="..." ><strong>Edgar Arroyo</strong></a><br>Hola, bien y tu?</li>
+	<li class="list-group-item"><a herf="perfil.html"><img class="media-object img-rounded" width="32" height="32" src="img/ed3.jpg" alt="..." ><strong>Eddie Lozano</strong></a><br>Mucho gusto</li>
+	<li class="list-group-item"><a herf="perfil.html"><img class="media-object img-rounded" width="32" height="32" src="img/ed3.jpg" alt="..." ><strong>Eddie Lozano</strong></a><br> :) </li>
+	
+	
+	
+    </ul>
+	<br>
+	<textarea class="form-control" name="mensaje" rows="3" placeholder="Escribe un mensaje..."></textarea>           		
+            <button type="submit" class="btn btn-large btn-warning " name="button">Enviar</button>
+	</div>
+</div>

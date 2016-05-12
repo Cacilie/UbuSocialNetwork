@@ -1,0 +1,23 @@
+{
+  "name": "app",
+  "homepage": "https://github.com/MiguelMc1/UbuSocialNetwork",
+  "authors": [
+    "Miguel Mtz <miguelmc.18@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.5",
+    "bootstrap": "^3.3.6"
+  }
+}
