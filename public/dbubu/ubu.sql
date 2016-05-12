@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 11-05-2016 a las 03:23:21
--- Versión del servidor: 10.1.10-MariaDB
--- Versión de PHP: 5.6.19
+-- Host: 127.0.0.1
+-- Generation Time: May 12, 2016 at 08:39 AM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 5.6.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,15 +17,39 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `ubu`
+-- Database: `ubu`
 --
+CREATE DATABASE IF NOT EXISTS `ubu` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `ubu`;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comentarios-codigos`
+-- Table structure for table `chat_rooms`
 --
 
+DROP TABLE IF EXISTS `chat_rooms`;
+CREATE TABLE `chat_rooms` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `chat_rooms`
+--
+
+INSERT INTO `chat_rooms` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'hola', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comentarios-codigos`
+--
+
+DROP TABLE IF EXISTS `comentarios-codigos`;
 CREATE TABLE `comentarios-codigos` (
   `id` bigint(80) NOT NULL,
   `user_id` bigint(20) NOT NULL,
@@ -34,7 +58,7 @@ CREATE TABLE `comentarios-codigos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `comentarios-codigos`
+-- Dumping data for table `comentarios-codigos`
 --
 
 INSERT INTO `comentarios-codigos` (`id`, `user_id`, `codigo_id`, `comentario`) VALUES
@@ -43,21 +67,15 @@ INSERT INTO `comentarios-codigos` (`id`, `user_id`, `codigo_id`, `comentario`) V
 (3, 8, 3, 'error en linea 3'),
 (4, 8, 3, 'jajajaj idiota'),
 (5, 8, 3, 'Y en la 4 no hay nada'),
-(6, 8, 3, 'Lol, si funciono'),
-(7, 8, 2, 'Ala bestia'),
-(8, 8, 3, '¿Despúes del echo no van comillas?'),
-(9, 8, 3, 'Aaaa ya vi porque no, gracias igualmente'),
-(10, 8, 3, 'achissss, que hace eso?'),
-(11, 8, 5, 'eddie es gay'),
-(12, 8, 4, 'Wey, esta mal'),
-(13, 11, 4, 'Bruuh');
+(6, 8, 3, 'Lol, si funciono');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `groups`
+-- Table structure for table `groups`
 --
 
+DROP TABLE IF EXISTS `groups`;
 CREATE TABLE `groups` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` int(11) NOT NULL,
@@ -71,9 +89,10 @@ CREATE TABLE `groups` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `groups_members`
+-- Table structure for table `groups_members`
 --
 
+DROP TABLE IF EXISTS `groups_members`;
 CREATE TABLE `groups_members` (
   `interaction_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
@@ -85,9 +104,10 @@ CREATE TABLE `groups_members` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `likes`
+-- Table structure for table `likes`
 --
 
+DROP TABLE IF EXISTS `likes`;
 CREATE TABLE `likes` (
   `interaction_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
@@ -95,42 +115,43 @@ CREATE TABLE `likes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `likes`
+-- Dumping data for table `likes`
 --
 
 INSERT INTO `likes` (`interaction_id`, `post_id`, `user_id`) VALUES
-(21, 25, 8),
-(22, 23, 8),
-(23, 23, 8),
-(24, 25, 8),
-(25, 16, 8),
-(26, 16, 8),
-(27, 25, 8),
-(28, 27, 8),
-(29, 28, 11),
-(30, 29, 11),
-(31, 30, 8),
-(32, 25, 8),
-(33, 26, 8),
-(34, 26, 8),
-(35, 31, 8),
-(36, 42, 8),
-(37, 43, 10),
-(38, 43, 8);
+(17, 21, 15),
+(19, 20, 15);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `migrations`
+-- Table structure for table `messages`
 --
 
+DROP TABLE IF EXISTS `messages`;
+CREATE TABLE `messages` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `body` text COLLATE utf8_unicode_ci NOT NULL,
+  `chat_room_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
@@ -138,14 +159,17 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2014_10_12_100000_create_password_resets_table', 1),
 ('2016_03_29_211015_create_profiles_table', 1),
 ('2016_03_29_220312_create_posts_table', 1),
-('2016_03_29_225832_create_groups_table', 1);
+('2016_03_29_225832_create_groups_table', 1),
+('2016_05_08_192357_create_chat_rooms_table', 2),
+('2016_05_08_192530_create_messages_table', 2);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `password_resets`
+-- Table structure for table `password_resets`
 --
 
+DROP TABLE IF EXISTS `password_resets`;
 CREATE TABLE `password_resets` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -155,86 +179,41 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `post-codigos`
+-- Table structure for table `posts`
 --
 
-CREATE TABLE `post-codigos` (
-  `id` bigint(20) NOT NULL,
-  `user_id` bigint(20) NOT NULL,
-  `codigo` text NOT NULL,
-  `sintaxis` varchar(50) NOT NULL,
-  `titulo` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `post-codigos`
---
-
-INSERT INTO `post-codigos` (`id`, `user_id`, `codigo`, `sintaxis`, `titulo`) VALUES
-(1, 8, '#include &ltstdio.h>\n#include &ltstdlib.h>\n\nint main(void)\n{\n  printf("Hola mundo");\n  system("PAUSE");     \n  return 0;\n}', 'c', 'Hola mundo en C'),
-(2, 8, 'var a = 1\nvar b = 2\n\nconsole.log(a+b)', 'javascript', 'Suma de dos numeros en Js'),
-(3, 8, '$numero1 = 1;\n$numero2 = 2;\n\necho $numero1 + $numero2;', 'php', 'Suma de numeros en PHP'),
-(4, 11, '#include stdio.h\n\nprint "Soy gay"', 'c', 'Soy gay en c'),
-(5, 8, 'var a  = 3\nvar b = 100\n\nalert(a*b)', 'javascript', 'Multiplicacion de dos numeros en Js'),
-(6, 8, 'printf("Eddie es gay")', 'c', 'Eddie es gay en c');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `posts`
---
-
+DROP TABLE IF EXISTS `posts`;
 CREATE TABLE `posts` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `id_user` bigint(11) NOT NULL,
   `text` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `mencion` bigint(20) DEFAULT '0',
-  `likes` bigint(20) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `posts`
+-- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `id_user`, `text`, `mencion`, `likes`, `created_at`, `updated_at`) VALUES
-(15, 13, 'Madre mia del amor hermoso', 13, 0, '2016-04-17 05:17:44', NULL),
-(16, 13, 'Qué Honduras con tus verduras que tienes a bajas temperaturas?!', 8, 2, '2016-04-17 18:23:52', NULL),
-(17, 13, 'Ah raza!', 13, 0, '2016-04-17 19:11:11', NULL),
-(19, 13, 'Dio mio que pro', 13, 0, '2016-04-17 19:20:12', NULL),
-(20, 13, 'Que narices tio!', 11, 0, '2016-04-17 19:22:44', NULL),
-(21, 11, 'Joder macho ! dejame!', 11, 0, '2016-04-17 19:23:36', NULL),
-(22, 15, 'sup', 15, 0, '2016-04-20 14:26:54', NULL),
-(23, 15, '(◕︵◕)', 11, 2, '2016-04-20 16:42:00', NULL),
-(24, 15, '?¿?¿?¿?¿?¿', 15, 0, '2016-04-21 03:15:44', NULL),
-(25, 8, 'Aqui programando :D', 8, 4, '2016-05-01 19:53:17', NULL),
-(26, 8, 'Joel es gay!', 8, 2, '2016-05-02 19:54:00', NULL),
-(27, 8, 'Rene es gay', 8, 1, '2016-05-03 15:58:28', NULL),
-(28, 11, 'Soy gay', 11, 1, '2016-05-03 15:59:59', NULL),
-(29, 11, 'Perdonen familia, me hackearon', 11, 1, '2016-05-03 16:00:09', NULL),
-(30, 8, 'Esto esta quedando genial', 8, 1, '2016-05-06 03:28:08', NULL),
-(31, 8, 'Gran red social tio', 8, 1, '2016-05-08 17:22:29', NULL),
-(32, 8, 'A ver, ya uno no puede programar agusto ni en su casa', 8, 0, '2016-05-08 17:22:46', NULL),
-(33, 8, 'El #teamUbu es genial', 8, 0, '2016-05-08 17:22:53', NULL),
-(34, 8, '#teamcapi', 8, 0, '2016-05-08 17:23:06', NULL),
-(35, 8, '#teamwonderwoman', 8, 0, '2016-05-08 17:23:13', NULL),
-(36, 8, 'Alguien sabe como concatenar en fortran?', 8, 0, '2016-05-08 17:23:24', NULL),
-(37, 8, 'No saben?', 8, 0, '2016-05-08 17:23:37', NULL),
-(38, 8, 'Te amo <3', 11, 0, '2016-05-10 15:13:10', NULL),
-(39, 11, 'esque soy un crack', 11, 0, '2016-05-10 15:31:09', NULL),
-(40, 11, 'Estoy cansado de hacer todo :D', 11, 0, '2016-05-10 15:34:02', NULL),
-(41, 11, 'Estoy con mi amado edgar, y el buen eddie', 11, 0, '2016-05-10 15:39:43', NULL),
-(42, 8, 'Carlos es un crack', 8, 1, '2016-05-10 15:57:09', NULL),
-(43, 10, 'Aveces soy muy genial', 10, 2, '2016-05-11 00:35:55', NULL),
-(44, 8, 'Soy un crack de la leche', 8, 0, '2016-05-11 01:21:47', NULL);
+INSERT INTO `posts` (`id`, `id_user`, `text`, `mencion`, `created_at`, `updated_at`) VALUES
+(15, 13, 'Madre mia del amor hermoso', 13, '2016-04-17 05:17:44', NULL),
+(16, 13, 'Qué Honduras con tus verduras que tienes a bajas temperaturas?!', 8, '2016-04-17 18:23:52', NULL),
+(17, 13, 'Ah raza!', 13, '2016-04-17 19:11:11', NULL),
+(19, 13, 'Dio mio que pro', 13, '2016-04-17 19:20:12', NULL),
+(20, 13, 'Que narices tio!', 11, '2016-04-17 19:22:44', NULL),
+(21, 11, 'Joder macho ! dejame!', 11, '2016-04-17 19:23:36', NULL),
+(22, 15, 'sup', 15, '2016-04-20 14:26:54', NULL),
+(23, 15, '(◕︵◕)', 11, '2016-04-20 16:42:00', NULL),
+(24, 15, '?¿?¿?¿?¿?¿', 15, '2016-04-21 03:15:44', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `suscribciones`
+-- Table structure for table `suscribciones`
 --
 
+DROP TABLE IF EXISTS `suscribciones`;
 CREATE TABLE `suscribciones` (
   `id` bigint(20) NOT NULL,
   `suscriptor_id` bigint(20) NOT NULL,
@@ -242,7 +221,7 @@ CREATE TABLE `suscribciones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `suscribciones`
+-- Dumping data for table `suscribciones`
 --
 
 INSERT INTO `suscribciones` (`id`, `suscriptor_id`, `suscripcion_id`) VALUES
@@ -251,52 +230,45 @@ INSERT INTO `suscribciones` (`id`, `suscriptor_id`, `suscripcion_id`) VALUES
 (6, 11, 8),
 (7, 13, 11),
 (8, 13, 10),
-(9, 15, 11),
-(10, 8, 11),
-(11, 8, 13),
-(12, 8, 10),
-(13, 11, 10);
+(9, 15, 11);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user-data`
+-- Table structure for table `user-data`
 --
 
+DROP TABLE IF EXISTS `user-data`;
 CREATE TABLE `user-data` (
   `id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
-  `profile_picture` varchar(5000) NOT NULL DEFAULT 'users-data/profile-pictures/defaultpicture.jpg',
-  `profile_cover` varchar(5000) DEFAULT 'users-data/profile-cover/defaultcover.jpg',
+  `profile_picture` varchar(5000) NOT NULL DEFAULT 'https://raw.githubusercontent.com/Garyi/UbuSocialNetwork/master/public/users-data/profile-pictures/defaultpicture.png',
+  `profile_cover` varchar(5000) DEFAULT NULL,
   `Twitter` varchar(5000) DEFAULT NULL,
   `fav-language` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `user-data`
+-- Dumping data for table `user-data`
 --
 
 INSERT INTO `user-data` (`id`, `user_id`, `profile_picture`, `profile_cover`, `Twitter`, `fav-language`) VALUES
-(2, 8, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL),
-(5, 10, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL),
-(6, 11, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL),
-(7, 12, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL),
-(8, 13, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL),
-(9, 14, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL),
-(10, 15, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL),
-(11, 16, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL),
-(13, 17, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL),
-(14, 18, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL),
-(15, 19, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL),
-(16, 20, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL),
-(17, 21, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL);
+(2, 8, 'https://raw.githubusercontent.com/Garyi/UbuSocialNetwork/master/public/users-data/profile-pictures/defaultpicture.png', NULL, NULL, NULL),
+(5, 10, 'https://raw.githubusercontent.com/Garyi/UbuSocialNetwork/master/public/users-data/profile-pictures/defaultpicture.png', NULL, NULL, NULL),
+(6, 11, 'https://raw.githubusercontent.com/Garyi/UbuSocialNetwork/master/public/users-data/profile-pictures/defaultpicture.png', NULL, NULL, NULL),
+(7, 12, 'https://raw.githubusercontent.com/Garyi/UbuSocialNetwork/master/public/users-data/profile-pictures/defaultpicture.png', NULL, NULL, NULL),
+(8, 13, 'https://raw.githubusercontent.com/Garyi/UbuSocialNetwork/master/public/users-data/profile-pictures/defaultpicture.png', NULL, NULL, NULL),
+(9, 14, 'https://raw.githubusercontent.com/Garyi/UbuSocialNetwork/master/public/users-data/profile-pictures/defaultpicture.png', NULL, NULL, NULL),
+(10, 15, 'https://raw.githubusercontent.com/Garyi/UbuSocialNetwork/master/public/users-data/profile-pictures/defaultpicture.png', NULL, NULL, NULL),
+(11, 16, 'https://raw.githubusercontent.com/Garyi/UbuSocialNetwork/master/public/users-data/profile-pictures/defaultpicture.png', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -308,7 +280,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
@@ -317,128 +289,136 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 (11, 'Aldair Alvarado', 'alda@hotmail.com', 'f897b8d1e5cc779db28d2cbed3eaf188', NULL, NULL, NULL),
 (12, 'Oscar Rangel', 'oscar@hotmail.com', 'f156e7995d521f30e6c59a3d6c75e1e5', NULL, NULL, NULL),
 (13, 'Alex', 'alex@hotmail.com', '534b44a19bf18d20b71ecc4eb77c572f', NULL, NULL, NULL),
-(15, 'Miguel Mtz', 'miguel_mtz2121@hotmail.com', '3714cc6e9d3193e4f4535ab76ab9d1b6', NULL, NULL, NULL),
-(16, 'Rene Castillo', 'rene@hotmail.com', '93de1a7f9a00f8823ac377738b66236b', NULL, NULL, NULL),
-(17, 'Cesar', 'cesar@hotmail.com', '6f597c1ddab467f7bf5498aad1b41899', NULL, NULL, NULL),
-(18, 'Rene Elizondo', 'rene@gmail.com', '93de1a7f9a00f8823ac377738b66236b', NULL, NULL, NULL),
-(20, 'Francisco Torres', 'torres@hotmail.com', 'b50ac41ec20631c7b6be72f070d8ff67', NULL, NULL, NULL),
-(21, '', '', 'd41d8cd98f00b204e9800998ecf8427e', NULL, NULL, NULL);
+(15, 'Miguel Mtz', 'miguel_mtz2121@hotmail.com', '3714cc6e9d3193e4f4535ab76ab9d1b6', NULL, NULL, NULL);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `comentarios-codigos`
+-- Indexes for table `chat_rooms`
 --
-ALTER TABLE `comentarios-codigos`
+ALTER TABLE `chat_rooms`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `groups`
+-- Indexes for table `groups`
 --
 ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `groups_members`
+-- Indexes for table `groups_members`
 --
 ALTER TABLE `groups_members`
   ADD PRIMARY KEY (`interaction_id`);
 
 --
--- Indices de la tabla `likes`
+-- Indexes for table `likes`
 --
 ALTER TABLE `likes`
   ADD PRIMARY KEY (`interaction_id`);
 
 --
--- Indices de la tabla `password_resets`
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `messages_chat_room_id_foreign` (`chat_room_id`),
+  ADD KEY `messages_user_id_foreign` (`user_id`);
+
+--
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`),
   ADD KEY `password_resets_token_index` (`token`);
 
 --
--- Indices de la tabla `post-codigos`
---
-ALTER TABLE `post-codigos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `posts`
+-- Indexes for table `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `suscribciones`
+-- Indexes for table `suscribciones`
 --
 ALTER TABLE `suscribciones`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `user-data`
+-- Indexes for table `user-data`
 --
 ALTER TABLE `user-data`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `comentarios-codigos`
+-- AUTO_INCREMENT for table `chat_rooms`
 --
-ALTER TABLE `comentarios-codigos`
-  MODIFY `id` bigint(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+ALTER TABLE `chat_rooms`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT de la tabla `groups`
+-- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `groups_members`
+-- AUTO_INCREMENT for table `groups_members`
 --
 ALTER TABLE `groups_members`
   MODIFY `interaction_id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `likes`
+-- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `interaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `interaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
--- AUTO_INCREMENT de la tabla `post-codigos`
+-- AUTO_INCREMENT for table `messages`
 --
-ALTER TABLE `post-codigos`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `messages`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `posts`
+-- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
--- AUTO_INCREMENT de la tabla `suscribciones`
+-- AUTO_INCREMENT for table `suscribciones`
 --
 ALTER TABLE `suscribciones`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT de la tabla `user-data`
+-- AUTO_INCREMENT for table `user-data`
 --
 ALTER TABLE `user-data`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `messages_chat_room_id_foreign` FOREIGN KEY (`chat_room_id`) REFERENCES `chat_rooms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `messages_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
