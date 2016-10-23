@@ -77,7 +77,16 @@ grupoapp.controller('MainController',['$scope','$http',function($scope,$http){
  {
    $http.post('group/delete_member',{id:id})
    .success(function(data){
-     swal("A sido eliminado")
+     if(data == 0){
+       swal("A sido eliminado")
+     }
+     if(data == 1){
+       swal("No tienes permisos para eliminar miembros")
+     }
+     if(data == 004){
+       swal("No puedes eliminarte a ti mismo genio :p")
+     }
+
    })
    .error(function(err){
      swal(500)

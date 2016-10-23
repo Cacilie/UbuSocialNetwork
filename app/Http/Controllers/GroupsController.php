@@ -47,6 +47,7 @@ class GroupsController extends Controller
       DB::table('groups_members')->insert([
         'group_id' => $insertar_grupo,
         'member_id' => $_SESSION['uid'],
+        'admin' => 1,
       ]);
 
       return 200;
@@ -175,9 +176,27 @@ class GroupsController extends Controller
     }
 
     public function deleteMember(){
+      session_start();
+      $cuid = $_SESSION['uid'];
       $id = Request::input('id');
-      $query = DB::table('groups_members')->where('member_id',$id)->delete();
-      return 0;
+      $gid = $_SESSION['group_id'];
+
+      $select = DB::table('groups_members')->where('member_id',$cuid)->where('admin',1)->where('group_id',$gid)->get();
+      if($select != null)
+      {
+        if($cuid == $id)
+        {
+          return 004;
+        }else {
+          $query = DB::table('groups_members')->where('member_id',$id)->where('group_id',$gid)->delete();
+          return 0;
+        }
+
+      }else {
+        return 1;
+      }
+
+
     }
 
 }
