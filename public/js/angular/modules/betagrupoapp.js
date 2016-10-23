@@ -59,9 +59,16 @@ grupoapp.controller('MainController',['$scope','$http',function($scope,$http){
      if(data == 404){
        swal("No existe ese usuario")
      }
-     else{
-       swal("Añadido")
+     if(data == 0101){
+       swal("El usuario ya es parte del grupo")
      }
+     if(data == 200){
+       swal("Usuario añadido correctamente")
+     }
+     if(data == 111){
+       swal("No tienes permisos para agregar miembros")
+     }
+$scope.anadir = {usuario:''}
    })
    .error(function(err){
      console.log("err");

@@ -161,18 +161,36 @@ class GroupsController extends Controller
 
     public function addMember(){
       session_start();
+      $gid = $_SESSION['group_id'];
       $user = Request::input('usuario');
+      $cuid = $_SESSION['uid'];
       $validar  = DB::table('users')->where('email',$user)->get();
-      if ($validar != null) {
-        $insertar = DB::table('groups_members')->insert([
-          'group_id' => $_SESSION['group_id'],
-          'member_id' => $validar[0]->id,
-        ]);
-        return 200;
+      $cu = DB::table('groups_members')->where('member_id',$cuid)->where('admin',1)->where('group_id',$gid)->get();
+      if ($cu != null) {
+        if ($validar != null) {
+          $iduser = $validar[0]->id;
+          $existe = DB::table('groups_members')->where('member_id',$iduser)->where('group_id',$_SESSION['group_id'])->get();
+          if($existe != null)
+          {
+            return 0101;
+          }else{
+            $insertar = DB::table('groups_members')->insert([
+              'group_id' => $_SESSION['group_id'],
+              'member_id' => $validar[0]->id,
+            ]);
+            return 200;
+          }
+
+        }
+        else {
+          return 404;
+        }
       }
       else {
-        return 404;
+
+        return 111;
       }
+
     }
 
     public function deleteMember(){
