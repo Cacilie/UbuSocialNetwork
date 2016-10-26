@@ -49,8 +49,14 @@ grupoapp.config(function($stateProvider, $urlRouterProvider){
 grupoapp.controller('MainController',['$scope','$http',function($scope,$http){
  $scope.mensaje = {nota:''}
  $scope.usuario = {email:''}
+ $scope.busqueda = {titulo:''}
  $scope.irPerfil = function(){
-   window.location = "publicprofile="+$scope.usuario.email
+   $scope.busqueda.titulo = $("#ingenieur").val();
+   console.log($scope.busqueda);
+  var index = $scope.awlist.indexOf($scope.busqueda.titulo)
+  //console.log(index);
+  $scope.usuario.email = $scope.awlist[index + 1]
+  window.location = "publicprofile="+$scope.usuario.email
  }
  $scope.anadir = {usuario:''}
  $scope.nuevo = function(){
@@ -119,6 +125,16 @@ $http.post('group/nuevaNota',$scope.mensaje)
   $scope.mensaje = {nota:''}
 })
  }
+
+var input = document.getElementById("ingenieur");
+var awesomplete = new Awesomplete(input)
+$http.post('getAllUsers',{})
+.success(function(data){
+  awesomplete.list = data;
+  $scope.awlist = data
+  //console.log(data);
+});
+
 
   $scope.intervalo = function(){
     setInterval(function () {

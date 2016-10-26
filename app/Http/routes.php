@@ -66,6 +66,10 @@ Route::post('update/Facebook','InfoController@updateFacebook');
 Route::post('update/Twitter','InfoController@updateTwitter');
 Route::post('update/Lenguaje','InfoController@updateLenguaje');
 
+Route::post('getAllUsers','InfoController@getAllUsers');
+
+
+
 Route::post('getCodeText','EditorController@getCodeText');
 Route::group(['middleware' => ['web']], function () {
     //

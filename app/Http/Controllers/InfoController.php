@@ -80,4 +80,18 @@ class InfoController extends Controller
 
       return $sintaxis;
     }
+
+
+    public function getAllUsers()
+    {
+      $query = DB::table('users')->select('name','email')->get();
+      $users = array();
+      for($i = 0; $i < count($query) ; $i++)
+     {
+       foreach ($query[$i] as $key => $value) {
+           $users[] = $value;
+       }
+     }
+      return $users;
+    }
 }

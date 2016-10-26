@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/grupo.css">
     <link rel="stylesheet" href="sweetalert/sweetalert.css">
     <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="awesomplete/awesomplete.css" media="screen" title="no title">
   </head>
   <body ng-app="grupoapp" ng-controller="MainController">
     <header>
@@ -23,7 +24,7 @@
            <div class="collapse navbar-collapse" id="navbar-1">
              <form class="navbar-form navbar-left" role="search">
                <div class="form-group" >
-                 <input type="text" class="form-control" placeholder="Buscar" ng-model="usuario.email">
+                 <input type="text" class="form-control" id="ingenieur" placeholder="Buscar" >
                </div>
                <button ng-click="irPerfil()" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span></button>
              </form>
@@ -97,5 +98,6 @@
     <script src="js/angular/modules/betagrupoapp.js"></script>
     <script src="sweetalert/sweetalert.min.js" ></script>
     <script src="js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="awesomplete/awesomplete.min.js" charset="utf-8"></script>
   </body>
 </html>
