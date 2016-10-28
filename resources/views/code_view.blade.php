@@ -6,6 +6,15 @@
    <link rel="shortcut icon" href="Images/logo.png">
    <link rel="stylesheet" href="css/code_view.css">
    <link rel="stylesheet" href="sweetalert/sweetalert.css">
+   <script src="js/jquery.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/angular/angular.min.js"></script>
+   <script src="js/angular/angular-ui-router.min.js"></script>
+   <script src="js/angular/modules/code_view.js"></script>
+   <script src="js/jquery.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="sweetalert/sweetalert.min.js" ></script>
+   <script src="ace/src-noconflict/ace.js" charset="utf-8"></script>
 </head>
 <body ng-app="codeapp" ng-controller="firstController">
   <header>
@@ -52,9 +61,12 @@
         <h4 class="media-heading" ng-repeat="data in codigodata"><a href="#">{{data.titulo}}</h4></a>
       <a href="#paginalenguaje" ng-repeat="data in codigodata">{{data.sintaxis}} <span class="glyphicon glyphicon-tags"></span></a>
       <div class="row">
+        <!--
       <pre id="code-layer">
 
       </pre>
+    -->
+    <div id="editor"></div>
       </div>
       <!-- <button type="submit" class="btn btn-large btn-primary" name="like">Like</button> -->
 
@@ -107,14 +119,18 @@
 </aside>
 
 
-  <script src="js/jquery.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/angular/angular.min.js"></script>
-  <script src="js/angular/angular-ui-router.min.js"></script>
-  <script src="js/angular/modules/code_view.js"></script>
-  <script src="js/jquery.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="sweetalert/sweetalert.min.js" ></script>
+
 <!-- <script src="js/code_layer.js" charset="utf-8"></script> -->
 </body>
+
+
+<style media="screen">
+#editor {
+     height: 50em;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+ }
+</style>
 </html>

@@ -1,5 +1,8 @@
 var codeapp = angular.module('codeapp',['ui.router']);
 codeapp.controller('firstController',['$scope','$http',function($scope,$http){
+
+
+
   $scope.search={email:''}
   $scope.searchSb = function(){
     window.location = "publicprofile="+$scope.search.email
@@ -19,8 +22,14 @@ codeapp.controller('firstController',['$scope','$http',function($scope,$http){
   .success(function(data){
     $scope.codigodata = data
     $scope.codigo = data[0].codigo
-    // console.log(data);
-    editor_edit($scope.codigo)
+    console.log($scope.codigo);
+    var editor = ace.edit("editor");
+   editor.setTheme("ace/theme/monokai");
+   editor.getSession().setMode("ace/mode/"+data[0].sintaxis);
+   editor.setValue($scope.codigo);
+   editor.setReadOnly(true);
+     
+  //  editor_edit($scope.codigo)
   })
   .error(function(data){
     console.log("ERR");
