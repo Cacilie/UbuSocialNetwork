@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="sweetalert/sweetalert.css">
     <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="awesomplete/awesomplete.css" media="screen" title="no title">
+    <script src="js/jquery.js" charset="utf-8"></script>
+    <script src="js/angular/angular.min.js"></script>
+    <script src="js/angular/angular-ui-router.min.js"></script>
+    <script src="js/angular/modules/betagrupoapp.js"></script>
+    <script src="sweetalert/sweetalert.min.js" ></script>
+    <script src="js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="awesomplete/awesomplete.min.js" charset="utf-8"></script>
+    <script src="ace/src-noconflict/ace.js" charset="utf-8"></script>
+
   </head>
   <body ng-app="grupoapp" ng-controller="MainController">
     <header>
@@ -92,12 +101,6 @@
 
 
 
-    <script src="js/jquery.js" charset="utf-8"></script>
-    <script src="js/angular/angular.min.js"></script>
-    <script src="js/angular/angular-ui-router.min.js"></script>
-    <script src="js/angular/modules/betagrupoapp.js"></script>
-    <script src="sweetalert/sweetalert.min.js" ></script>
-    <script src="js/bootstrap.min.js" charset="utf-8"></script>
-    <script src="awesomplete/awesomplete.min.js" charset="utf-8"></script>
+
   </body>
 </html>

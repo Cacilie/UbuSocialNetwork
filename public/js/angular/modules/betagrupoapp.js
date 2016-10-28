@@ -205,8 +205,22 @@ grupoapp.controller('PostController',['$scope','$http',function($scope,$http){
 
 grupoapp.controller('CodeController',['$scope','$http',function($scope,$http){
   // console.log("Estoy dentro");
+
+  var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/monokai");
+  editor.getSession().setMode("ace/mode/c_cpp");
+
+  $scope.cambiarSintaxis = function(sintaxis){
+    console.log(sintaxis)
+    editor.getSession().setMode("ace/mode/"+sintaxis);
+  }
+
+
   $scope.codeInfo = {titulo : '',codigo:'',sintaxis : 'c'}
   $scope.sendCode =function(){
+    console.log(editor.getValue());
+    $scope.codeInfo.codigo = editor.getValue();
+
    $http.post('group/postCode',$scope.codeInfo)
    .success(function(data){
      if (data == 200) {
@@ -216,6 +230,7 @@ grupoapp.controller('CodeController',['$scope','$http',function($scope,$http){
        swal("No deberias estar aquí :P")
      }
    })
+   
    }
 }]);
 
