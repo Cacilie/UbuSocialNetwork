@@ -76,6 +76,16 @@ $scope.intervalo();
     window.location = "/codigo_id="+encodeURI(id)
   }
 
+  $scope.cod = {titulo:'',sintaxis:'',codigo: ''}
+  $scope.pubCod = function(){
+    $http.post('feed/postCode',$scope.cod)
+    .success(function(data){
+      swal("Publicado Correctamente")
+    })
+    .error(function(err){
+      swal("Error")
+    })
+  }
 
   $scope.grupo = {nombre:'',asunto:''}
   $scope.crearGrupo = function(){

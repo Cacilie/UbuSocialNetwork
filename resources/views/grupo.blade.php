@@ -107,6 +107,7 @@
     <script src="js/angular/angular.min.js"></script>
     <script src="js/angular/angular-ui-router.min.js"></script>
     <script src="js/angular/modules/grupoapp.js"></script>
+    <script src="js/angular/modules/betagrupoapp.js"></script>
     <script src="sweetalert/sweetalert.min.js" ></script>
     <script src="js/bootstrap.min.js" charset="utf-8"></script>
 </body>

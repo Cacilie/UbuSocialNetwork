@@ -22,19 +22,34 @@ class FeedController extends Controller
       ->join('user-data','users.id','=','user-data.user_id')
       ->join('users as MU','posts.mencion','=','MU.id')
       ->select('posts.id_user','posts.mencion','users.name','posts.text', 'posts.id','user-data.profile_picture',
-        'MU.name as mname','posts.likes')
+        'MU.name as mname','MU.email as memail','posts.likes','users.email')
       ->whereIn('posts.id_user',$personas)
       ->orderBy('posts.created_at','desc')->get();
 
       return $getpost;
     }
 
+    public function postCode(){
+      session_start();
+      $titulo = Request::input('titulo');
+      $codigo = Request::input('codigo');
+      $sintaxis = Request::input('sintaxis');
+
+        $insertar = DB::table('post-codigos')->insert([
+          'user_id' => $_SESSION['uid'],
+          'codigo' => $codigo,
+          'sintaxis' => $sintaxis,
+          'titulo' => $titulo,
+        ]);
+        return 200;}
+
+
     public function get_info(){
       session_start();
       $profile = $_SESSION['uid'];
       $getinfo = DB::table('users')
       ->join('user-data','users.id','=','user-data.user_id')
-      ->select('users.name','users.id','user-data.profile_picture',
+      ->select('users.name','users.email','users.id','user-data.profile_picture',
       'user-data.profile_cover','user-data.Twitter'
       )->where('users.id','=',$profile)->get();
        return $getinfo;
@@ -53,7 +68,7 @@ class FeedController extends Controller
       ->join('users','post-codigos.user_id','=','users.id')
       ->join('user-data','users.id','=','user-data.user_id')
       ->select('post-codigos.id','post-codigos.sintaxis','post-codigos.titulo',
-      'users.name','user-data.profile_picture','post-codigos.user_id'
+      'users.name','users.email','user-data.profile_picture','post-codigos.user_id'
       )->whereIn('post-codigos.user_id',$personas)
       ->orderBy('post-codigos.id','desc')->get();
       return $code_post;
