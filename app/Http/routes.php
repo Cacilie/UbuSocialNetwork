@@ -59,6 +59,7 @@ Route::post('editor/related','EditorController@related_codes');
 Route::post('public/getCodes','PublicProfile@get_codes');
 Route::post('upload', 'UploadController@upload');
 Route::post('feed/getPost','FeedController@get_post_follows');
+Route::post('feed/postCode','FeedController@postCode');
 Route::post('feed/info','FeedController@get_info');
 Route::post('feed/codes','FeedController@get_codes');
 Route::post('update/Youtube','InfoController@updateYoutube');
