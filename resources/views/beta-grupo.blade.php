@@ -55,7 +55,7 @@
      </nav>
      </header>
 
-     <div class="jumbotron">
+     <div class="jumbotron" id="cover">
        <div class="container text-center" ng-repeat="info in maindata">
          <h1>{{info.name}}</h1>
        </div>
@@ -63,12 +63,12 @@
      <div class="container-fluid bg-3 text-center">
        <div class="container text-center">
    <div class="row">
-     <div class="col-sm-3 well">
+     <div class="col-sm-3 well" id="notas">
        <div class="well">
          <p>Notas</p>
 
        </div>
-       <textarea class="form-control" ng-model="mensaje.nota" rows="3" placeholder="Escribe una nota..."></textarea>
+       <textarea class="form-control" ng-model="mensaje.nota" rows="3" placeholder="Escribe una nota..." ></textarea>
        <div class="pull-right">
                  <button type="submit" class="btn btn-large btn-warning " ng-click="sendnota()">Publicar</button>
        </div>
@@ -81,16 +81,17 @@
      <div class="col-sm-7" ui-view="content">
 
      </div>
-     <div class="col-sm-2 well">
+     <div class="col-sm-2 well" id="menu">
        <div class="well">
          Menú
        </div>
        <div class="well">
          <ul class="nav nav-pills nav-stacked">
            <li><a ui-sref="main">Home</a></li>
+           <li><a ui-sref="codigo">Publicar código</a></li>
            <li><a ui-sref="biblioteca">Biblioteca de Códigos</a></li>
            <li><a ui-sref="ajustes">Ajustes</a></li>
-           <li><a ui-sref="codigo">Publicar código</a></li>
+           
          </ul>
        </div>
      </div>

@@ -1,13 +1,15 @@
 <div>
   <br>
-  <textarea class="form-control" ng-model="publicacion.mensaje" rows="3" placeholder="Que estas tramando"></textarea> <br>
+
+  <textarea class="form-control" ng-model="publicacion.mensaje" rows="3" placeholder="¿Qué estás tramando?"  id="publicarArea"></textarea> <br>
   <div class="pull-right">
             <button  class="btn btn-warning" ng-click="send()">Publicar</button>
           </div>
             <br> <br>
   
           <!-- Comentarios/publicaciones-->
-          <div class="media" ng-repeat="post in publicaciones">
+          <div id="publicaciones">
+            <div class="media" ng-repeat="post in publicaciones">
             <div class="media-left">
               <a href="perfil.html">
                 <img ng-src="{{post.profile_picture}}" class="img-rounded img" alt="" >
@@ -18,5 +20,7 @@
                 <p> {{post.texto}} </p>
               </div>
             </div>
+          </div>
+          
 
   </div>

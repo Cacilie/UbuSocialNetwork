@@ -47,6 +47,10 @@ grupoapp.config(function($stateProvider, $urlRouterProvider){
 
 
 grupoapp.controller('MainController',['$scope','$http',function($scope,$http){
+
+
+
+
  $scope.mensaje = {nota:''}
  $scope.usuario = {email:''}
  $scope.busqueda = {titulo:''}
@@ -171,6 +175,21 @@ $scope.intervalo();
 }]);
 
 grupoapp.controller('PostController',['$scope','$http',function($scope,$http){
+   $( "#publicarArea" ).focus(function() {
+  console.log("Hola")
+  $( "#cover" ).addClass( "noselected" );
+  $( "#notas" ).addClass( "noselected" );
+  $( "#menu" ).addClass( "noselected" );
+  $( "#publicaciones" ).addClass( "noselected" );
+  $( "#publicarArea" ).addClass( "selected" );
+  $("#publicarArea").blur(function(){
+    $( "#cover" ).removeClass( "noselected" );
+  $( "#notas" ).removeClass( "noselected" );
+  $( "#menu" ).removeClass( "noselected" );
+  $( "#publicaciones" ).removeClass( "noselected" );
+  $( "#publicarArea" ).removeClass( "selected" );
+  });
+}); 
   $scope.publicacion = {mensaje:''}
   $scope.send = function(){
     $http.post('group/post',$scope.publicacion)
