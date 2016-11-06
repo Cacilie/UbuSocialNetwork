@@ -56,8 +56,8 @@
      </header>
 
      <div class="jumbotron">
-       <div class="container text-center">
-         <h1>Equipo UBU</h1>
+       <div class="container text-center" ng-repeat="info in maindata">
+         <h1>{{info.name}}</h1>
        </div>
      </div>
      <div class="container-fluid bg-3 text-center">
