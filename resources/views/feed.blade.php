@@ -13,6 +13,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="awesomplete/awesomplete.css" media="screen" title="no title">
+     <script src="js/jquery.js" charset="utf-8"></script>
+    <script src="js/angular/angular.min.js"></script>
+    <script src="js/angular/angular-ui-router.min.js"></script>
+    <script src="js/angular/modules/feedapp.js"></script>
+    <script src="sweetalert/sweetalert.min.js" ></script>
+    <script src="js/bootstrap.min.js" charset="utf-8"></script>
+     <script src="awesomplete/awesomplete.min.js" charset="utf-8"></script>
+    <script src="ace/src-noconflict/ace.js" charset="utf-8"></script>
   </head>
 
   <body ng-app="feedapp" ng-controller="MainController" class="body" id="fonts">
@@ -28,12 +37,12 @@
             </div>
 
               <div class="collapse navbar-collapse" id="navbar-1">
-              <form class="navbar-form navbar-left" role="search">
-              <div class="form-group" >
-              <input type="text" class="form-control" placeholder="Buscar" ng-model="search.email">
-              </div>
-              <button ng-click="searchSb()" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span></button>
-      		</form>
+            <form class="navbar-form navbar-left" role="search">
+               <div class="form-group" >
+                 <input type="text" class="form-control" id="ingenieur" placeholder="Buscar" >
+               </div>
+               <button ng-click="irPerfil()" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span></button>
+             </form>
           <ul class="nav navbar-nav navbar-right">
           <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
           <li class="dropdown">
@@ -185,13 +194,8 @@
 
 
 
-    <script src="js/jquery.js" charset="utf-8"></script>
-    <script src="js/angular/angular.min.js"></script>
-    <script src="js/angular/angular-ui-router.min.js"></script>
-    <script src="js/angular/modules/feedapp.js"></script>
-    <script src="sweetalert/sweetalert.min.js" ></script>
-    <script src="js/bootstrap.min.js" charset="utf-8"></script>
-    <script src="ace/src-noconflict/ace.js" charset="utf-8"></script>
+   
+    
     <!-- <script src="js/materialize.min.js"></script> -->
   </body>
 </html>
