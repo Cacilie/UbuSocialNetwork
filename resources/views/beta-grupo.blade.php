@@ -60,6 +60,7 @@
          <h1>{{info.name}}</h1>
        </div>
      </div>
+
      <div class="container-fluid bg-3 text-center">
        <div class="container text-center">
    <div class="row">

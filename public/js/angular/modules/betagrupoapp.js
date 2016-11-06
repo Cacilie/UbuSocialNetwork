@@ -18,7 +18,7 @@ grupoapp.config(function($stateProvider, $urlRouterProvider){
     url: '/codigo',
     views:{
       'content' :{
-        templateUrl : 'templates/perfilcodigo.html',
+        templateUrl : 'templates/grupocodigo.html',
         controller : 'CodeController',
       }
     }
