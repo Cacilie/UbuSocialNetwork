@@ -15,7 +15,7 @@
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:600' rel='stylesheet' type='text/css'>
   </head>
   <body ng-app="welcomeapp">
-    <video  poster="Images/polina.jpg" id="bgvid"  autoplay="autoplay" loop="loop">
+    <video  poster="Images/polina.jpg" id="bgvid"  autoplay="autoplay" loop="loop" muted>
     <source src="videos/polina.mp4" type="video/mp4">
     <source src="videos/polina.webm" type="video/webm">
     </video>
