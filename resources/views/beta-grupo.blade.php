@@ -92,7 +92,7 @@
            <li><a ui-sref="codigo">Publicar código</a></li>
            <li><a ui-sref="biblioteca">Biblioteca de Códigos</a></li>
            <li><a ui-sref="ajustes">Ajustes</a></li>
-           
+
          </ul>
        </div>
      </div>

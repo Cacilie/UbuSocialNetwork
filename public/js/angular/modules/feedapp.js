@@ -95,16 +95,41 @@ $scope.intervalo();
     window.location = "/codigo_id="+encodeURI(id)
   }
 
-  $scope.cod = {titulo:'',sintaxis:'',codigo: ''}
-  $scope.pubCod = function(){
-    $http.post('feed/postCode',$scope.cod)
-    .success(function(data){
-      swal("Publicado Correctamente")
-    })
-    .error(function(err){
-      swal("Error")
-    })
-  }
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/c_cpp");
+
+    $scope.cambiarSintaxis = function(sintaxis){
+      console.log(sintaxis)
+      editor.getSession().setMode("ace/mode/"+sintaxis);
+    }
+
+
+    $scope.cod = {titulo : '',codigo:'',sintaxis : ''}
+    $scope.pubCode =function(){
+      console.log(editor.getValue());
+      $scope.cod.codigo = editor.getValue();
+
+     $http.post('feed/postCode',$scope.cod)
+     .success(function(data){
+       if (data == 200) {
+         swal("Publicado con éxito")
+       }
+       if (data == 404){
+         swal("No deberias estar aquí :P")
+       }
+     })
+
+     }
+
+    $( "textarea[name=post]" ).focus(function() {
+    $( "#nw" ).addClass( "noselected" );
+    $( "textarea[name=post]" ).addClass( "selected" );
+    $("textarea[name=post]").blur(function(){
+    $( "#nw" ).removeClass( "noselected" );
+    $( "textarea[name=post]" ).removeClass( "selected" );
+    });
+  });
 
   $scope.grupo = {nombre:'',asunto:''}
   $scope.crearGrupo = function(){
