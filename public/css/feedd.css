@@ -37,13 +37,30 @@ a{
 
 }
 
+.tArea{
+  float:left;
+  width:100%;
+  outline:none;
+  resize:vertical;
+}
+
+
+#editor {
+        position: relative;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height:30em;
+    }
+
 table {
     border-collapse: collapse;
     width: 100%;
 }
 
 td, th {
-    border-bottom: 3px solid transparent;
+    border: 10px solid transparent;
     text-align: left;
     padding: 8px;
 }
