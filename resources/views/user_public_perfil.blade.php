@@ -9,7 +9,7 @@
 </head>
 <body ng-app="publicperfilapp" ng-controller="MainController">
   <header>
-    <nav class="navbar navbar-fixed-top navbar-default">
+    <nav class="navbar navbar-fixed-top navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1" aria-expanded="true">
@@ -26,7 +26,7 @@
             <div class="form-group" >
               <input type="text" class="form-control" placeholder="Buscar" ng-model="search.email">
             </div>
-            <button ng-click="searchSb()" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span></button>
+            <button ng-click="searchSb()" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button>
           </form>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="feed"><span class="glyphicon glyphicon-home"></span></a></li>
@@ -45,22 +45,29 @@
     </div>
   </nav>
   </header>
-  <div class="container col-md-9">
+
+<div class="col-md-2" id="aside-1">
+  <caption><h4>    </h4></caption>
+</div>
+
+  <div class="container col-md-7" id="aside-3">
   <div ng-controller="StartPublicController">
     <div align="center"  ng-repeat="info in myinfo">
-      <img ng-src="{{info.profile_picture}}" alt="" class="img-responsive img-rounded post-picture" width="40%"/>
+            <img  ng-src="{{info.profile_picture}}" alt="" class="img-responsive img-rounded post-picture" width="40%"/>
+    </a>
     </div>
     <section clas="jumbotron1" ng-repeat="info in myinfo">
       <div class="container col-md-12" align="center">
-       <h3>{{info.name}}</h3>
-       <button ng-if="!suscrito" name="follow" class="btn btn-warning" ng-click="follow()">Seguir</button>
-       <h5 ng-if="suscrito">Siguiendo :)</h5>
+        <h3 class="media-heading" id="nombre">{{info.name}}</h3>
+       <button ng-if="!suscrito" name="follow" class="btn btn-info" ng-click="follow()">Seguir</button>
+       <h5 ng-if="suscrito">Siguiendo</h5>
       </div>
     </section>
 
     <div class="container-fluid" id="main">
       <ul class="nav nav-tabs nav-justified">
         <li role="presentation" ui-sref="public_post"><a href="#posts">Posts</a></li>
+        <li role="presentation" ui-sref="public_codigo"><a href="#codigo">Codigo</a></li>
         <li role="presentation" ui-sref="followers"><a href="publicoseguidores.html">Seguidores</a></li>
       </ul>
     </div>
@@ -68,6 +75,9 @@
 
 
      <div class="vistas-wrapper" ui-view="content"></div>
+  </div>
+
+  <div class="container col-md-2" id="aside-1">
   </div>
 
 

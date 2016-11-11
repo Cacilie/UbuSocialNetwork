@@ -34,7 +34,7 @@ class PublicProfile extends Controller
     ->join('user-data','users.id','=','user-data.user_id')
     ->join('users as MU','posts.mencion','=','MU.id')
     ->select('posts.id_user','posts.mencion','users.name','posts.text', 'posts.id','user-data.profile_picture',
-      'MU.name as mname','posts.likes')
+      'MU.name as mname','MU.email as memail','posts.likes','users.email')
     ->where('posts.id_user','=',$profile)->orWhere('posts.mencion', '=',$profile)
     ->orderBy('posts.created_at','desc')->take(10)->get();
 		$getpids = DB::table('posts')
