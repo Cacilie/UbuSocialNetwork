@@ -17,7 +17,7 @@
     <script src="ace/src-noconflict/ace.js" charset="utf-8"></script>
 
   </head>
-  <body ng-app="grupoapp" ng-controller="MainController">
+  <body ng-app="grupoapp" ng-controller="MainController" class="main">
     <header>
        <nav class="navbar navbar-fixed-top navbar-inverse">
          <div class="container-fluid">
@@ -64,7 +64,7 @@
      <div class="container-fluid bg-3 text-center">
        <div class="container text-center">
    <div class="row">
-     <div class="col-sm-3 well" id="notas">
+     <div class="col-sm-3 well notas" id="notas">
        <div class="well">
          <p>Notas</p>
 
