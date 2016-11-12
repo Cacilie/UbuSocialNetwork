@@ -32,11 +32,29 @@ publicperfilapp.config(function($stateProvider, $urlRouterProvider){
   })
 });
 
-publicperfilapp.controller('MainController',['$scope',function($scope){
-  $scope.search = {email:''}
-  $scope.searchSb = function(){
-    window.location= "publicprofile="+$scope.search.email
-  }
+publicperfilapp.controller('MainController',['$scope','$http',function($scope,$http){
+ 
+ $scope.usuario = {email:''}
+ $scope.busqueda = {titulo:''}
+ $scope.irPerfil = function(){
+   $scope.busqueda.titulo = $("#ingenieur").val();
+   console.log($scope.busqueda);
+  var index = $scope.awlist.indexOf($scope.busqueda.titulo)
+  //console.log(index);
+  $scope.usuario.email = $scope.awlist[index + 1]
+  window.location = "publicprofile="+$scope.usuario.email
+ }
+
+
+var input = document.getElementById("ingenieur");
+var awesomplete = new Awesomplete(input)
+$http.post('getAllUsers',{})
+.success(function(data){
+  awesomplete.list = data;
+  $scope.awlist = data
+  //console.log(data);
+});
+
 }])
 publicperfilapp.controller('StartPublicController',['$scope','$http',function($scope,$http){
   $scope.posttosend = {post : ''};

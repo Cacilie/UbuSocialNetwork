@@ -35,7 +35,7 @@
                <div class="form-group" >
                  <input type="text" class="form-control" id="ingenieur" placeholder="Buscar" >
                </div>
-               <button ng-click="irPerfil()" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span></button>
+               <button ng-click="irPerfil()" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button>
              </form>
              <ul class="nav navbar-nav navbar-right">
                <li><a href="feed"><span class="glyphicon glyphicon-home"></span></a></li>

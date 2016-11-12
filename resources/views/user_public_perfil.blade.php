@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
  <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="awesomplete/awesomplete.css" media="screen" title="no title">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="shortcut icon" href="Images/logo.png">
   <link rel="stylesheet" href="css/perfilpublico.css">
@@ -22,12 +23,13 @@
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-1">
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group" >
-              <input type="text" class="form-control" placeholder="Buscar" ng-model="search.email">
-            </div>
-            <button ng-click="searchSb()" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button>
-          </form>
+             <form class="navbar-form navbar-left" role="search">
+               <div class="form-group" >
+                 <input type="text" class="form-control" id="ingenieur" placeholder="Buscar" >
+               </div>
+               <button ng-click="irPerfil()" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button>
+             </form>
+          
           <ul class="nav navbar-nav navbar-right">
             <li><a href="feed"><span class="glyphicon glyphicon-home"></span></a></li>
             <li class="dropdown">
@@ -86,5 +88,6 @@
   <script src="js/angular/modules/public_profile.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="awesomplete/awesomplete.min.js" charset="utf-8"></script>
 </body>
 </html>
