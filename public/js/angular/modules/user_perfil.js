@@ -145,6 +145,17 @@ $scope.getdo();
 }]);
 
 userperfilapp.controller('PostCodeController',['$scope','$http',function($scope,$http){
+  
+  var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/monokai");
+  editor.getSession().setMode("ace/mode/c_cpp");
+
+  $scope.cambiarSintaxis = function(sintaxis){
+    console.log(sintaxis)
+    editor.getSession().setMode("ace/mode/"+sintaxis);
+  }
+
+  
   $scope.firstTosend = {id : user_id};
   $scope.codeInfo = {titulo : '',codigo:'',sintaxis : 'c'}
   $http.post('getmyinfo',$scope.firstTosend)
@@ -158,6 +169,8 @@ userperfilapp.controller('PostCodeController',['$scope','$http',function($scope,
   })
 
   $scope.sendCode =function(){
+    console.log(editor.getValue());
+    $scope.codeInfo.codigo = editor.getValue();
     $http.post('postcode',$scope.codeInfo)
     .success(function(data){
       console.log(data);

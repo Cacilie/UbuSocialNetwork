@@ -85,14 +85,14 @@ $user_id = $_SESSION['uid'];
               <!-- <caption><h3>Secciones</h3></caption> -->
             </div>
             <div class="row">
-					<a href="#posts" class="btn btn-block btn-primary active" target="_self">
+					<a ui-sref="myposts" class="btn btn-block btn-primary active" >
 					<span class="glyphicon glyphicon-modal-window"></span> Publicaciones</a>
               <!-- <a  ng-href="{{info.Youtube}}" class="btn btn-block btn-danger active" target="_blank">
                 <span class="glyphicon glyphicon-play"></span> Canal de Youtube
               </a> -->
             </div>
 			<div class="row">
-					<a ui-sref="seeFollowers" class="btn btn-block btn-primary active" target="_self">
+					<a ui-sref="seeFollowers" class="btn btn-block btn-primary active" >
 					<span class="glyphicon glyphicon-eye-open"></span> Seguidores</a>
             <!-- <div class="row" ng-repeat="info in myinfo"> -->
               <!-- <a ng-href="{{info.Twitter}}" class="btn btn-block btn-info" target="_blank">
@@ -104,7 +104,7 @@ $user_id = $_SESSION['uid'];
 					<span class="glyphicon glyphicon-link"></span> Siguiendo</a>
             </div> -->
             <div class="row">
-					<a ui-sref="postCode" class="btn btn-block btn-primary active" target="_self">
+					<a ui-sref="postCode" class="btn btn-block btn-primary active" >
 					<span class="glyphicon glyphicon-upload"></span> Publicar un código</a>
               <!-- <a  ng-href="{{info.Facebook}}"class="btn btn-block btn-primary" target="_blank">
                 <span><img src="Images/face.jpg" alt="" width="20" height="20" /></span> Facebook
@@ -140,5 +140,6 @@ $user_id = $_SESSION['uid'];
   <script src="sweetalert/sweetalert.min.js" ></script>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="ace/src-noconflict/ace.js" charset="utf-8"></script>
 </body>
 </html>
