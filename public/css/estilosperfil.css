@@ -10,7 +10,7 @@ body {
 }
 
 .post-news{
-  font-size: 120%;
+  font-size: 100%;
   color: rgba(32, 26, 68, 1);
 }
 .botones{
@@ -20,31 +20,52 @@ body {
   z-index: 4;
 }
 #post-code-body{
-  color: rgba(32, 26, 68, 1);
-
-  font-size: 120%;
+	color: rgba(32, 26, 68, 1);
+	font-size: 120%;
     cursor: crosshair;
 }
 .name-post{
   color: #4E84E8;
-
 }
 #aside-1{
   padding-top: 60px;
   padding: 10px;
-  background: #272727;
-  height: 890px;
-  color: #fff;
+  background: #E0E1EF;
+  height: 870px;
+  color: #884dff;
 }
-#aside-2{
+#aside-3{
+  padding-top: 60px;
+  padding: 10px;
+  background: #E0E1EF;
+  height: 870px;
+}
+#aside-2{ /*sin usar */
   margin-left: 1100px;
   margin-top: 0px;
   height: 180%;
   position: absolute;
   padding: 10px;
   background: rgba(32, 26, 68, 1);
-  color: #fff;
 }
+#box{
+    border: 5px solid lavender;
+    border-radius: 5px;
+	width: 100%;
+	padding: 10px 15px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+.box2{
+	border: 5px solid;
+    border-radius: 7px;
+	width: 100%;
+	padding: 10px 15px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	color: rgb(238, 230, 255);
+}
+
 #pestanas{
   color: #4E84E8;
 }
@@ -53,7 +74,7 @@ body {
   padding-bottom: 5px;
 }
 .jumbotron1{
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 .row{
   padding-bottom: 5px;
@@ -67,11 +88,11 @@ caption{
 textarea{
   background: none;
   color: rgba(32, 26, 68, 1);
-  overflow:none;
+  overflow: none;
   outline: none;
-  width: 550px;
+  width: 500px;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
   resize: none;
 }
 *::-webkit-input-placeholder {
@@ -91,25 +112,40 @@ textarea{
     color: #4E84E8;
 }
 img{
-  style: rou
+  style: rou;
 }
-
 .cover{
   /*background: #64006A;*/
-  width: 320px;
-  height: 180px;
+  width: 450px;
+  height: 160px;
 }
 .sidebar-picture{
   background-color: #282729;
   border-radius: 10px;
-  border: 1px solid #b98a00;
+  border: 1px solid #884dff;
 }
 .post-picture{
-  height: 70px;
+  height: 72px;
   background-color: #1F1C16;
   border-radius: 10px;
+  border: #884dff;
 }
 .like{
   width: 30px;
   cursor: pointer;
+}
+#zoom{
+	display:block;
+	-webkit-transition:-webkit-transform 1s ease;
+	-moz-transition:-moz-transform 1s ease;
+	-o-transition:-o-transform 1s ease;
+	-ms-transition:-ms-transform 1s ease;
+	transition:transform 1s ease;
+}
+#zoom:hover{
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1)
 }

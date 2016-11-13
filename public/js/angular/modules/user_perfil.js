@@ -1,5 +1,4 @@
 
-
 var userperfilapp = angular.module('userperfilapp',['ui.router']);
 userperfilapp.config(function($stateProvider, $urlRouterProvider){
   $urlRouterProvider.otherwise('/myposts');
