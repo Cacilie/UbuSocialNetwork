@@ -32,7 +32,7 @@ own_profileapp.controller('SendNewsCTRL' , ['$scope','$http', function($scope,$h
     $http.post('sendaNew',$scope.newtosend)
     .success(function(data){
       console.log('ok');
-      swal('Bien!')
+      swal('¡Bien!')
       $scope.newtosend.post = ''
     })
     .error(function(err){
