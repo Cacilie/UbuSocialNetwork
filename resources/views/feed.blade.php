@@ -42,7 +42,7 @@
                <div class="form-group" >
                  <input type="text" class="form-control" id="ingenieur" placeholder="Buscar" >
                </div>
-               <button ng-click="irPerfil()" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span></button>
+               <button ng-click="irPerfil()" class="btn btn-warning" id="btntr"><span class="glyphicon glyphicon-search"></span></button>
              </form>
              <ul class="nav navbar-nav navbar-right">
                <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
@@ -65,9 +65,9 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-3 no-float">
-          <h2 id="group">Grupos</h2>
-          <h4>Crea tu Grupo</h4>
-            <a href="#group-modal" class="Group-link" data-toggle="modal"><span class="glyphicon glyphicon-plus"></a>
+          <h2 id="group">Grupos</h2><br>
+          <h4>Crea tu Grupo
+            <a href="#group-modal" class="Group-link" data-toggle="modal"><span class="glyphicon glyphicon-plus"></a></h4><br>
           <h4>Tus Grupos</h4>
           <div ng-repeat="grupos in misgrupos">
             <a href="/grupo={{grupos.id}}" class="code-link">{{grupos.name}}</a>
@@ -87,7 +87,7 @@
               <div class="media-body">
                 <a href="/my_profile"><h3 class="media-heading" id="nombre">{{info.name}}</h3></a>
                 <textarea class="form-control" ng-model="posttosend.post" name="post" rows="2" cols="53" placeholder="¿Pero qué estás tramando {{info.name}}?"></textarea>
-                <button ng-click="send()" class="btn btn-large btn-danger" name="button">Publicar</button>
+                <button ng-click="send()" class="btn btn-large btn-danger" id="btntr2" name="button">Publicar</button>
               </div>
             </div>
           </div>
@@ -111,9 +111,10 @@
 
         <!--Code-->
         <div class="col-md-3 no-float">
-          <h2>Código</h2>
-          <h4>Comparte Código</h4>
-            <a href="#sin-modal" class="Group-link" data-toggle="modal"><span class="glyphicon glyphicon-plus"></a>
+          <h2>Código</h2><br>
+          <h4>Comparte Código
+            <a href="#sin-modal" class="Group-link" data-toggle="modal"><span class="glyphicon glyphicon-plus"></a></h4>
+              <br>
           <h4>Códigos Recientes</h4>
             <div class="seccion" ng-repeat="code in codigos">
               <table>
