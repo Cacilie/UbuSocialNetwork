@@ -1,7 +1,7 @@
 html,body,.container-fluid
 {
     height:100%;
-    background: #F5F5F5;
+    background: #E0E1EF;
 }
 
 a{
@@ -30,11 +30,10 @@ a{
 }
 .col-md-3 {
     padding-top: 40px;
-    background: #272727;
-    color: rgb(245, 245, 245);
+    background: #E0E1EF;
 }
 .col-md-6 {
-
+background: #ffffff;
 }
 
 .tArea{
@@ -107,8 +106,16 @@ tr:nth-child(even) {
   color: black;
 }
 
-#cheat{
-  height: 0px;
+#btntr{
+  color: #fff;
+  background-color: #31b0d5;
+  border-color: #eea236;
+}
+
+#btntr2{
+  color: #fff;
+  background-color: #31b0d5;
+  border-color: #eea236;
 }
 
 #editor {
