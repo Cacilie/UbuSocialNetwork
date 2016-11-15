@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-11-2016 a las 19:54:55
+-- Tiempo de generación: 15-11-2016 a las 06:45:41
 -- Versión del servidor: 10.1.16-MariaDB
--- Versión de PHP: 5.6.24
+-- Versión de PHP: 5.5.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -52,7 +52,8 @@ INSERT INTO `comentarios-codigos` (`id`, `user_id`, `codigo_id`, `comentario`) V
 (27, 15, 6, 'Excelente'),
 (28, 23, 11, 'dasds'),
 (29, 23, 13, 'comentario'),
-(30, 23, 15, 'hola');
+(30, 23, 15, 'hola'),
+(31, 8, 15, 'hola prueba!');
 
 -- --------------------------------------------------------
 
@@ -78,7 +79,12 @@ INSERT INTO `groups` (`id`, `name`, `type`, `privacy`, `created_by`, `created_at
 (3, 'Team Ubu', 'Soporte', NULL, 8, '2016-05-13 00:49:45', NULL),
 (4, 'equipo1', 'poo', NULL, 11, '2016-05-13 13:35:52', NULL),
 (5, 'GrupoPrueba', 'Probando los grupos', NULL, 23, '2016-10-23 04:22:25', NULL),
-(6, 'cruzazul', 'trabajo', NULL, 24, '2016-10-28 15:44:23', NULL);
+(6, 'cruzazul', 'trabajo', NULL, 24, '2016-10-28 15:44:23', NULL),
+(7, 'Polina Team', 'Equipo de Web', NULL, 26, '2016-11-15 02:24:04', NULL),
+(8, 'Grupo3', 'tercer grupo', NULL, 8, '2016-11-15 04:46:12', NULL),
+(9, 'Grupo4', 'Grupo4', NULL, 8, '2016-11-15 05:01:01', NULL),
+(10, 'Grupo5', 'Grupo5', NULL, 8, '2016-11-15 05:02:49', NULL),
+(11, 'Grupo6', 'Grupo6', NULL, 8, '2016-11-15 05:05:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -104,7 +110,12 @@ INSERT INTO `groups_members` (`id`, `group_id`, `member_id`, `added_at`, `admin`
 (9, 3, 15, '2016-10-21 04:18:12', 0),
 (13, 5, 23, '2016-10-23 04:48:48', 1),
 (21, 5, 8, '2016-10-23 04:48:57', 0),
-(22, 6, 24, '2016-10-28 15:44:23', 1);
+(22, 6, 24, '2016-10-28 15:44:23', 1),
+(23, 7, 26, '2016-11-15 02:24:04', 1),
+(24, 8, 8, '2016-11-15 04:46:12', 1),
+(25, 9, 8, '2016-11-15 05:01:01', 1),
+(26, 10, 8, '2016-11-15 05:02:49', 1),
+(27, 11, 8, '2016-11-15 05:05:58', 1);
 
 -- --------------------------------------------------------
 
@@ -147,7 +158,8 @@ INSERT INTO `grupos-posts` (`id`, `user_id`, `texto`, `grupo_id`) VALUES
 (7, 8, 'A trabajar!', 3),
 (8, 8, 'Se entrega pronto!', 3),
 (9, 8, 'dasdasdasdasdasda', 3),
-(10, 24, 'conquistar al mundo', 6);
+(10, 24, 'conquistar al mundo', 6),
+(11, 26, 'Señores, Ubu tiene que estar para dispositivos móviles!', 7);
 
 -- --------------------------------------------------------
 
@@ -218,7 +230,26 @@ INSERT INTO `likes` (`interaction_id`, `post_id`, `user_id`) VALUES
 (94, 77, 8),
 (95, 76, 8),
 (96, 76, 8),
-(97, 75, 8);
+(97, 75, 8),
+(98, 63, 8),
+(99, 63, 8),
+(100, 79, 8),
+(101, 79, 8),
+(102, 82, 8),
+(103, 82, 8),
+(104, 82, 8),
+(105, 82, 8),
+(106, 84, 8),
+(107, 84, 8),
+(108, 85, 8),
+(109, 85, 8),
+(110, 86, 8),
+(111, 86, 8),
+(112, 87, 8),
+(113, 87, 8),
+(114, 88, 8),
+(115, 66, 8),
+(116, 79, 8);
 
 -- --------------------------------------------------------
 
@@ -297,7 +328,10 @@ INSERT INTO `post-codigos` (`id`, `user_id`, `codigo`, `sintaxis`, `titulo`, `gr
 (22, 24, 'int pwm=0;\nvoid loop()\n{\njajajajaj\n}', 'c', 'ewrtfgjkl', 6),
 (23, 24, 'int pwm=0;\nvoid loop()\n{\njajajajaj\n}', 'c', 'ewrtfgjkl', 6),
 (24, 24, 'int pwm=0;\nvoid loop()\n{\njajajajaj\n}', 'c', 'ewrtfgjkl', 6),
-(25, 24, 'int pwm=0;\nvoid loop()\n{\njajajajaj\n}', 'c', 'ewrtfgjkl', 6);
+(25, 24, 'int pwm=0;\nvoid loop()\n{\njajajajaj\n}', 'c++', 'ewrtfgjkl', 6),
+(26, 8, 'document.write("HOla!!!")', 'javascript', 'JS', NULL),
+(27, 8, 'console.log("caminando como cangrejo")', 'javascript', 'caminando como cangrejo', NULL),
+(28, 8, '\nconsole.log(alda)', 'javascript', 'Codigo de alda', NULL);
 
 -- --------------------------------------------------------
 
@@ -326,10 +360,10 @@ INSERT INTO `posts` (`id`, `id_user`, `text`, `mencion`, `likes`, `created_at`, 
 (52, 15, 'Necesito vacaciones', 15, 14, '2016-05-18 09:38:40', NULL),
 (56, 15, 'Cuando tienes examen de POO?', 8, 0, '2016-05-18 10:04:35', NULL),
 (62, 15, 'Weeks of programming can save hours of planning', 15, 0, '2016-05-18 10:49:17', NULL),
-(63, 15, 'Que opinas de Bash para Windows10???', 8, 0, '2016-05-18 10:50:14', NULL),
+(63, 15, 'Que opinas de Bash para Windows10???', 8, 2, '2016-05-18 10:50:14', NULL),
 (64, 8, 'Hola!!', 8, 0, '2016-09-15 16:30:47', NULL),
 (65, 8, 'dgrt', 8, 3, '2016-09-15 16:33:20', NULL),
-(66, 8, 'ytyty', 15, 16, '2016-09-15 16:34:58', NULL),
+(66, 8, 'ytyty', 15, 17, '2016-09-15 16:34:58', NULL),
 (67, 8, 'fgth', 11, 0, '2016-09-15 16:35:47', NULL),
 (68, 8, 'Yo pienso que es una cosa mala , negativa, que quieren matar a ubu, #noalaactualización', 8, 1, '2016-09-15 16:53:27', NULL),
 (69, 23, 'Hola amigos!', 23, 0, '2016-10-23 02:16:59', NULL),
@@ -342,7 +376,18 @@ INSERT INTO `posts` (`id`, `id_user`, `text`, `mencion`, `likes`, `created_at`, 
 (76, 23, 'console.log (1)', 23, 2, '2016-10-23 02:39:13', NULL),
 (77, 23, 'hola', 8, 1, '2016-10-23 02:39:55', NULL),
 (78, 24, 'conquistar al mundo xdXDxd', 24, 0, '2016-10-28 15:41:35', NULL),
-(79, 8, 'holaaa', 15, 0, '2016-11-12 19:45:40', NULL);
+(79, 8, 'holaaa', 15, 3, '2016-11-12 19:45:40', NULL),
+(80, 26, '¿Es el entregable I la muerte de Ubu? #RipUbu', 26, 0, '2016-11-15 02:50:50', NULL),
+(81, 8, 'edgar', 8, 0, '2016-11-15 04:20:20', NULL),
+(82, 8, 'pero que diablos', 8, 4, '2016-11-15 04:20:31', NULL),
+(83, 8, 'dasd', 8, 0, '2016-11-15 04:56:16', NULL),
+(84, 8, 'sigue funcionando', 8, 2, '2016-11-15 05:01:23', NULL),
+(85, 8, 'Me expreso', 8, 2, '2016-11-15 05:03:28', NULL),
+(86, 8, 'publico algo prueba', 8, 2, '2016-11-15 05:06:07', NULL),
+(87, 8, 'vamos a ver', 8, 2, '2016-11-15 05:09:57', NULL),
+(88, 23, 'loooool, ubu es genial!', 8, 1, '2016-11-15 05:17:35', NULL),
+(89, 8, 'que pasa tio', 8, 0, '2016-11-15 05:29:43', NULL),
+(90, 8, 'que rollo', 15, 0, '2016-11-15 05:42:51', NULL);
 
 -- --------------------------------------------------------
 
@@ -389,7 +434,7 @@ CREATE TABLE `user-data` (
   `id` bigint(20) NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `profile_picture` varchar(5000) NOT NULL DEFAULT 'users-data/profile-pictures/defaultpicture.jpeg',
-  `profile_cover` varchar(5000) DEFAULT 'users-data/profile-cover/defaultcover.jpeg',
+  `profile_cover` varchar(5000) DEFAULT 'users-data/profile-cover/defaultcover.jpg',
   `Twitter` varchar(5000) DEFAULT NULL,
   `Youtube` varchar(500) DEFAULT NULL,
   `Facebook` varchar(500) DEFAULT NULL,
@@ -417,7 +462,8 @@ INSERT INTO `user-data` (`id`, `user_id`, `profile_picture`, `profile_cover`, `T
 (18, 22, 'users-data/profile-pictures/defaultpicture.jpg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL, NULL, NULL),
 (19, 23, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL, NULL, NULL),
 (20, 24, 'users-data/profile-pictures/defaultpicture.jpg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL, NULL, NULL),
-(21, 25, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpeg', NULL, NULL, NULL, NULL);
+(21, 25, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL, NULL, NULL),
+(22, 26, 'users-data/profile-pictures/defaultpicture.jpeg', 'users-data/profile-cover/defaultcover.jpg', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -454,7 +500,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 (22, 'Lucero Moran', 'lucerom@hotmail.com', '4c54766ed4f728b3929385200d5ad28e', NULL, NULL, NULL),
 (23, 'prueba', 'prueba@prueba.com', 'c893bad68927b457dbed39460e6afd62', NULL, NULL, NULL),
 (24, 'cesracrac', 'cesar.nie97@gmail.com', '76419c58730d9f35de7ac538c2fd6737', NULL, NULL, NULL),
-(25, 'pruebaperfil', 'pruebap@hotmail.com', 'c893bad68927b457dbed39460e6afd62', NULL, NULL, NULL);
+(25, 'pruebaperfil', 'pruebap@hotmail.com', 'c893bad68927b457dbed39460e6afd62', NULL, NULL, NULL),
+(26, 'Polina', 'polina@hotmail.com', '37b9ba422d4e385b10a859651aace30a', NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -542,17 +589,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `comentarios-codigos`
 --
 ALTER TABLE `comentarios-codigos`
-  MODIFY `id` bigint(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT de la tabla `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `groups_members`
 --
 ALTER TABLE `groups_members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT de la tabla `grupos-notas`
 --
@@ -562,22 +609,22 @@ ALTER TABLE `grupos-notas`
 -- AUTO_INCREMENT de la tabla `grupos-posts`
 --
 ALTER TABLE `grupos-posts`
-  MODIFY `id` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `interaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `interaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 --
 -- AUTO_INCREMENT de la tabla `post-codigos`
 --
 ALTER TABLE `post-codigos`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 --
 -- AUTO_INCREMENT de la tabla `suscribciones`
 --
@@ -587,12 +634,12 @@ ALTER TABLE `suscribciones`
 -- AUTO_INCREMENT de la tabla `user-data`
 --
 ALTER TABLE `user-data`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
