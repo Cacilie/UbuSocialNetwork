@@ -14,13 +14,18 @@
           <div id="publicaciones">
             <div class="media post" ng-repeat="post in publicaciones">
             <div class="media-left">
+
               <a ng-href="/publicprofile={{post.email}}">
                 <img ng-src="{{post.profile_picture}}" class="img-rounded img" alt="" >
-              </a>  </div>
-            <div class="media-left">
+              </a>  
+
+            </div>
+           
+            <div class="media-body">
               <a ng-href="/publicprofile={{post.email}}">
-                <h5 class="media-heading">{{post.name}}  <span>   </span></h5>
-              </a>
+                 <h4 class="media-heading name-post"> {{post.name}}</h4>
+            </a>
+              
                 <p> {{post.texto}} </p>
               </div>
             </div>
