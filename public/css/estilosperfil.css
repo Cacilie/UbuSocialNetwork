@@ -21,7 +21,7 @@ body {
 }
 #post-code-body{
 	color: rgba(32, 26, 68, 1);
-	font-size: 120%;
+	font-size: 130%;
     cursor: crosshair;
 }
 .name-post{
@@ -32,7 +32,7 @@ body {
   padding: 10px;
   background: #E0E1EF;
   height: 870px;
-  color: #884dff;
+  color: #001a33;
 }
 #aside-3{
   padding-top: 60px;
@@ -56,17 +56,33 @@ body {
     margin: 8px 0;
     box-sizing: border-box;
 }
-.box2{
-	border: 5px solid;
+#box2{
+    border: 5px solid #a64dff;
     border-radius: 7px;
 	width: 100%;
 	padding: 10px 15px;
     margin: 8px 0;
     box-sizing: border-box;
-	color: rgb(238, 230, 255);
 }
-
-#pestanas{
+.box2{
+	border: 5px solid rgb(238, 230, 255);
+    border-radius: 7px;
+	width: 100%;
+	padding: 10px 15px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	color: #bf80ff;
+}
+.box3{
+	border: 5px solid #d9b3ff;
+    border-radius: 7px;
+	width: 100%;
+	padding: 10px 15px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	color: #bf80ff;
+}
+#pestanas{ /*en desuso */
   color: #4E84E8;
 }
 .media{
@@ -122,19 +138,21 @@ img{
 .sidebar-picture{
   background-color: #282729;
   border-radius: 10px;
-  border: 1px solid #884dff;
+  border: 1px solid #001a33;
 }
 .post-picture{
   height: 72px;
   background-color: #1F1C16;
   border-radius: 10px;
-  border: #884dff;
+  border: #001a33;
 }
 .like{
   width: 30px;
   cursor: pointer;
 }
-#zoom{
+
+/* efecto que no quisieron :( */
+/*  #zoom{
 	display:block;
 	-webkit-transition:-webkit-transform 1s ease;
 	-moz-transition:-moz-transform 1s ease;
@@ -148,4 +166,4 @@ img{
 	-o-transform: scale(1.1);
 	-ms-transform: scale(1.1);
 	transform: scale(1.1)
-}
+} */

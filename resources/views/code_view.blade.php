@@ -35,15 +35,15 @@
             <div class="form-group" >
               <input type="text" class="form-control" placeholder="Buscar" ng-model="search.email">
             </div>
-            <button ng-click="searchSb()" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span></button>
+            <button ng-click="searchSb()" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button>
           </form>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/feed"><span class="glyphicon glyphicon-home"></span></a></li>
             <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
-                <li><a ui-sref="user_config" class="glyphicon glyphicon-wrench"></span> Opciones</a></li>
+                <li><a ui-sref="user_config"><span class="glyphicon glyphicon-wrench"></span> Opciones</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="/"><span class=" glyphicon glyphicon-off"></span> Log Out</a></li>
               </ul>
@@ -52,7 +52,7 @@
         </div>
       </div>
   </nav>
-  </header>
+  </header> <!-- fin de la barrita -->
   <textarea id="recibeCodigo">{{data.codigo}}</textarea>
   <div class="main container-fluid col-md-8 col-xs-12 col-sm-12">
 
@@ -81,7 +81,7 @@
           <div class="col-md-8">
             <div class="row">
             <div class="input-group" ng-repeat="info in personalInfo" >
-              <input type="text" class="form-control" placeholder="Comenta algo {{info.name}}" ng-model="comentarioData.comentario">
+              <input type="text" class="form-control" placeholder="Comenta algo, {{info.name}}" ng-model="comentarioData.comentario">
               <span class="input-group-btn">
               <button class="btn btn-default" ng-click="sendComentario()">Comentar</button>
               </span>
@@ -108,7 +108,7 @@
   </div>
 
 <aside class="col-md-4">
-  <h3>Codigos Relacionados</h3>
+  <h3>Códigos Relacionados</h3>
   <div class="media" id="related-code" ng-repeat="rel in relacionados">
     <div class="media-body">
       <p class="relacionados" ng-click="viewCode(rel.id)">
@@ -125,7 +125,7 @@
 
 
 <style media="screen">
-#editor {
+#editor{
      height: 50em;
      top: 0;
      right: 0;

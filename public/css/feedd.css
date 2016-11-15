@@ -40,7 +40,7 @@ background: #ffffff;
   float:left;
   width:100%;
   outline:none;
-  resize:vertical;
+  resize:none;
 }
 
 
