@@ -36,7 +36,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/my_profile"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
-                <li><a href="my_profile#/user_config"><span class="glyphicon glyphicon-wrench"></span> Opciones</a></li>
+                <!--<li><a href="my_profile#/user_config"><span class="glyphicon glyphicon-wrench"></span> Opciones</a></li>-->
                 <li role="separator" class="divider"></li>
                 <li><a href="/"><span class=" glyphicon glyphicon-off"></span> Log Out</a></li>
               </ul>

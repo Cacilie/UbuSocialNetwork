@@ -7,13 +7,13 @@
    <link rel="stylesheet" href="css/code_view.css">
    <link rel="stylesheet" href="sweetalert/sweetalert.css">
    <link rel="stylesheet" href="awesomplete/awesomplete.css" media="screen" title="no title">
-    <script src="js/jquery.js"></script>
+  <script src="js/jquery.js"></script>
    <script src="js/bootstrap.min.js"></script>
    <script src="js/angular/angular.min.js"></script>
    <script src="js/angular/angular-ui-router.min.js"></script>
    <script src="js/angular/modules/code_view.js"></script>
   
-   <script src="js/bootstrap.min.js"></script>
+  
    <script src="sweetalert/sweetalert.min.js" ></script>
    <script src="ace/src-noconflict/ace.js" charset="utf-8"></script>
    <script src="awesomplete/awesomplete.min.js" charset="utf-8"></script> 

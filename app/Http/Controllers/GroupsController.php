@@ -70,6 +70,7 @@ class GroupsController extends Controller
       ->join('user-data','grupos-posts.user_id','=','user-data.user_id')
       ->select('grupos-posts.texto','grupos-posts.grupo_id','users.name','users.email','user-data.profile_picture')
       ->where('grupos-posts.grupo_id','=',$_SESSION['group_id'])
+      ->orderBy('grupos-posts.id','desc')
       ->get();
       return $publicaciones;
     }
