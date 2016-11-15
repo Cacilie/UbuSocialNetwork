@@ -1,12 +1,28 @@
 var codeapp = angular.module('codeapp',['ui.router']);
 codeapp.controller('firstController',['$scope','$http',function($scope,$http){
 
+$scope.usuario = {email:''}
+ $scope.busqueda = {titulo:''}
+ $scope.irPerfil = function(){
+   $scope.busqueda.titulo = $("#ingenieur").val();
+   console.log($scope.busqueda);
+  var index = $scope.awlist.indexOf($scope.busqueda.titulo)
+  //console.log(index);
+  $scope.usuario.email = $scope.awlist[index + 1]
+  window.location = "publicprofile="+$scope.usuario.email
+ }
 
 
-  $scope.search={email:''}
-  $scope.searchSb = function(){
-    window.location = "publicprofile="+$scope.search.email
-  }
+var input = document.getElementById("ingenieur");
+var awesomplete = new Awesomplete(input)
+$http.post('getAllUsers',{})
+.success(function(data){
+  awesomplete.list = data;
+  $scope.awlist = data
+  //console.log(data);
+});
+
+
   $scope.viewCode = function(id){
     window.location = "/codigo_id="+encodeURI(id)
   }
@@ -27,7 +43,7 @@ codeapp.controller('firstController',['$scope','$http',function($scope,$http){
    editor.setTheme("ace/theme/monokai");
    editor.getSession().setMode("ace/mode/"+data[0].sintaxis);
    editor.setValue($scope.codigo);
-   editor.setReadOnly(true);
+   editor.setReadOnly(false);
      
   //  editor_edit($scope.codigo)
   })

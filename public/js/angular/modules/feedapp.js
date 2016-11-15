@@ -1,6 +1,17 @@
 var feedapp = angular.module('feedapp',[]);
 
 feedapp.controller('MainController',['$scope','$http',function($scope,$http){
+
+
+ 
+  $("#publicarArea").focus(function(){
+  $( "#central" ).addClass( "noselected" );
+  $( "#lateral-izquierdo" ).addClass( "noselected" );
+  $( "#lateral-derecho" ).addClass( "noselected" );
+
+  })
+
+
   $scope.search = {email:''}
   $scope.searchSb = function(){
     window.location = "publicprofile="+$scope.search.email
@@ -25,7 +36,11 @@ $http.post('getAllUsers',{})
   //console.log(data);
 });
 
-  $http.post('group/myGroups',{})
+ 
+  $scope.intervalo = function(){
+    setInterval(function () {
+
+       $http.post('group/myGroups',{})
   .success(function(data){
     console.log(data);
     $scope.misgrupos = data;
@@ -33,8 +48,6 @@ $http.post('getAllUsers',{})
   .error(function(err){
     console.log("error");
   })
-  $scope.intervalo = function(){
-    setInterval(function () {
       $http.post('feed/getPost',{})
       .success(function(data){
         // console.log(data);
@@ -119,17 +132,9 @@ $scope.intervalo();
          swal("No deberias estar aquí :P")
        }
      })
+  }
 
-     }
-
-    $( "textarea[name=post]" ).focus(function() {
-    $( "#nw" ).addClass( "noselected" );
-    $( "textarea[name=post]" ).addClass( "selected" );
-    $("textarea[name=post]").blur(function(){
-    $( "#nw" ).removeClass( "noselected" );
-    $( "textarea[name=post]" ).removeClass( "selected" );
-    });
-  });
+  
 
   $scope.grupo = {nombre:'',asunto:''}
   $scope.crearGrupo = function(){

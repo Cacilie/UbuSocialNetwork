@@ -19,7 +19,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"> <span><img src="Images/logo.png" align="center" width="50" height="25"/></span></script></a>
+          <a class="navbar-brand" href="/feed"> <span><img src="Images/logo.png" align="center" width="50" height="25"/></span></script></a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-1">
@@ -68,8 +68,8 @@
 
     <div class="container-fluid" id="main">
       <ul class="nav nav-tabs nav-justified">
-        <li role="presentation" ui-sref="public_post"><a href="#posts">Posts</a></li>
-        <li role="presentation" ui-sref="public_codigo"><a href="#codigo">Codigo</a></li>
+        <li role="presentation" ui-sref="public_post"><a href="#posts">Publicaciones</a></li>
+        <li role="presentation" ui-sref="public_codigo"><a href="#codigo">Códigos</a></li>
         <li role="presentation" ui-sref="followers"><a href="publicoseguidores.html">Seguidores</a></li>
       </ul>
     </div>

@@ -12,7 +12,7 @@ class InfoController extends Controller
       $userid = $_SESSION['uid'];
       $getinfo = DB::table('users')
       ->join('user-data','users.id','=','user-data.user_id')
-      ->select('users.name','users.id','user-data.profile_picture',
+      ->select('users.name','users.id','user-data.profile_picture','users.email',
       'user-data.profile_cover','user-data.Twitter','user-data.Facebook','user-data.Youtube'
       ,'user-data.fav-language'
       )->where('users.id','=',$userid)->get();

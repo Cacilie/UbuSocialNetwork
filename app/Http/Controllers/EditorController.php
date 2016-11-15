@@ -48,7 +48,7 @@ class EditorController extends Controller
     $get_comment = DB::table('comentarios-codigos')
     ->join('users','comentarios-codigos.user_id','=','users.id')
     ->join('user-data','users.id','=','user-data.user_id')
-    ->select('users.name','user-data.profile_picture','comentarios-codigos.comentario','comentarios-codigos.codigo_id')
+    ->select('users.name','users.email','user-data.profile_picture','comentarios-codigos.comentario','comentarios-codigos.codigo_id')
     ->where('comentarios-codigos.codigo_id','=',$_SESSION['code_id'])
     ->orderBy('comentarios-codigos.id','desc')
     ->get();

@@ -50,7 +50,7 @@
                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
                  <ul class="dropdown-menu">
                    <li><a href="/my_profile"><span class="glyphicon glyphicon-user"></span>Mi Perfil</a></li>
-                   <li><a href="my_profile#/user_config"><span class="glyphicon glyphicon-wrench"></span>Configuración</a></li>
+                   <!--<li><a href="my_profile#/user_config"><span class="glyphicon glyphicon-wrench"></span>Configuración</a></li>-->  
                    <li role="separator" class="divider"></li>
                    <li><a href="/"><span class=" glyphicon glyphicon-off"></span>Log Out</a></li>
                  </ul>
@@ -64,7 +64,8 @@
     <!--Grupos-->
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-3 no-float">
+        <div id="lateral-izquierdo">
+        <div class="col-md-3 no-float" >
           <h2 id="group">Grupos</h2><br>
           <h4>Crea tu Grupo
             <a href="#group-modal" class="Group-link" data-toggle="modal"><span class="glyphicon glyphicon-plus"></a></h4><br>
@@ -73,6 +74,7 @@
             <a href="/grupo={{grupos.id}}" class="code-link">{{grupos.name}}</a>
           </div>
         </div>
+      </div>
 
       <!--Post-->
       <div class="col-md-6 no-float">
@@ -86,15 +88,16 @@
               </div>
               <div class="media-body">
                 <a href="/my_profile"><h3 class="media-heading" id="nombre">{{info.name}}</h3></a>
-                <textarea class="form-control" ng-model="posttosend.post" name="post" rows="2" cols="53" placeholder="¿Pero qué estás tramando {{info.name}}?"></textarea>
+                <textarea  id="publicarArea" class="form-control" ng-model="posttosend.post"  rows="2" cols="53" placeholder="Exprésate, {{info.name}}"></textarea>
                 <button ng-click="send()" class="btn btn-large btn-danger" id="btntr2" name="button">Publicar</button>
               </div>
             </div>
           </div>
           <!--News-->
+          <div id="central">
           <div class="media" ng-repeat="new in news" id="nw">
                 <div class="media-left">
-                  <a ng-href="/publicprofile={{new.memail}}">
+                  <a ng-href="/publicprofile={{new.email}}">
                     <img ng-src="{{new.profile_picture}}" class="img-rounded post-picture" alt="">
                   </a>
                 </div>
@@ -109,8 +112,14 @@
           </div>
         </div>
 
+
+        </div>
+
+
         <!--Code-->
-        <div class="col-md-3 no-float">
+
+        <div class="col-md-3 no-float" >
+           <div id="lateral-derecho">
           <h2>Código</h2><br>
           <h4>Comparte Código
             <a href="#sin-modal" class="Group-link" data-toggle="modal"><span class="glyphicon glyphicon-plus"></a></h4>
@@ -132,6 +141,7 @@
           </div>
           </table>
           </div>
+        </div>  
 
           <!--NewGroup-->
           <div class="modal fade" id="group-modal" tabindex="-1" role="dialog">
