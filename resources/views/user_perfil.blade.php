@@ -13,7 +13,8 @@ $user_id = $_SESSION['uid'];
   <link rel="stylesheet" type="text/css" href="css/estilosperfil.css">
   <link rel="shortcut icon" href="Images/logo.png">
   <link rel="stylesheet" href="sweetalert/sweetalert.css">
-  <title>MiPerfil</title>
+  <link rel="stylesheet" href="awesomplete/awesomplete.css" media="screen" title="no title">
+  <title>Mi Perfil</title>
   <script type="text/javascript">
     var user_id = "<?php echo $user_id;?>"
   </script>
@@ -31,16 +32,16 @@ $user_id = $_SESSION['uid'];
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#"><span><img src="Images/logo.png" align="center" width="50" height="25"/></span></script></a>
+              <a class="navbar-brand" href="/feed"><span><img src="Images/logo.png" align="center" width="50" height="25"/></span></script></a>
             </div>
 
             <div class="collapse navbar-collapse" id="navbar-1">
-              <form class="navbar-form navbar-left" role="search"> <!-- buscar -->
-                <div class="form-group" >
-                  <input type="text" class="form-control" placeholder="Buscar" ng-model="search.email">
-                </div>
-                <button ng-click="searchSb()" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button>
-              </form>
+              <form class="navbar-form navbar-left" role="search">
+               <div class="form-group" >
+                 <input type="text" class="form-control" id="ingenieur" placeholder="Buscar" >
+               </div>
+               <button ng-click="irPerfil()" class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button>
+             </form>
               <!-- apartados -->
 			  <ul class="nav navbar-nav navbar-right"> 
 			  <li><a href="/feed"><span class="glyphicon glyphicon-home"></span></a></li>
@@ -48,7 +49,7 @@ $user_id = $_SESSION['uid'];
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
-                <li><a ui-sref="user_config"><span class="glyphicon glyphicon-wrench"></span> Opciones</a></li>
+                <!--<li><a ui-sref="user_config"><span class="glyphicon glyphicon-wrench"></span> Opciones</a></li>-->
                 <li role="separator" class="divider"></li>
                 <li><a href="/"><span class=" glyphicon glyphicon-off"></span> Log Out</a></li>
               </ul>
@@ -151,5 +152,6 @@ $user_id = $_SESSION['uid'];
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="ace/src-noconflict/ace.js" charset="utf-8"></script>
+   <script src="awesomplete/awesomplete.min.js" charset="utf-8"></script>
 </body>
 </html>

@@ -9,12 +9,12 @@
 <br>
 <div class="box3" class="media" ng-repeat="followers in followersdata">
     <div class="media-left">
-      <a href="perfil.html">
+      <a ng-href="/publicprofile={{followers.email}}">
         <img ng-src="{{followers.profile_picture}}" class="img-rounded post-picture" alt="">
       </a>
     </div>
     <div class="media-body">
-      <h4>{{followers.name}}</h4>
+      <a ng-href="/publicprofile={{followers.email}}"><h4>{{followers.name}}</h4></a>
       <button name="follow" class="btn btn-info" ng-click="verperfil(followers.email)">Ver perfil</button>
     </div>
   </div>

@@ -2,6 +2,8 @@ body {
   padding-top: 50px;
   overflow-x: hidden;
   background: #F5F5F5;
+  width: 100%;
+
   /*background: -webkit-linear-gradient(to right,#353F40 ,#b98a00);
   background: -o-linear-gradient(to right,#353F40 ,#b98a00);
   background: -moz-linear-gradient(to right,#353F40 ,#b98a00);
@@ -31,14 +33,14 @@ body {
   padding-top: 60px;
   padding: 10px;
   background: #E0E1EF;
-  height: 870px;
+  height: 1870px;
   color: #001a33;
 }
 #aside-3{
   padding-top: 60px;
   padding: 10px;
   background: #E0E1EF;
-  height: 870px;
+  height: 1870px;
 }
 #aside-2{ /*sin usar */
   margin-left: 1100px;

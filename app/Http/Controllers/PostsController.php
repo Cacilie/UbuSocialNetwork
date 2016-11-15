@@ -24,8 +24,8 @@ class PostsController extends Controller
     ->join('users','posts.id_user','=','users.id')
     ->join('user-data','users.id','=','user-data.user_id')
     ->join('users as MU','posts.mencion','=','MU.id')
-    ->select('posts.id_user','posts.mencion','users.name','posts.text','user-data.profile_picture',
-      'MU.name as mname','posts.id','posts.likes')
+    ->select('posts.id_user','posts.mencion','users.name','users.email','posts.text','user-data.profile_picture',
+      'MU.name as mname','MU.email as memail','posts.id','posts.likes')
     ->where('posts.id_user','=',$userid)->orWhere('posts.mencion', '=',$userid)
     ->orderBy('posts.created_at','desc')->take(5)->get();
     return $getpost;
@@ -54,7 +54,7 @@ class PostsController extends Controller
       ->join('users','post-codigos.user_id','=','users.id')
       ->join('user-data','users.id','=','user-data.user_id')
       ->select('post-codigos.id','post-codigos.sintaxis','post-codigos.titulo',
-      'users.name','user-data.profile_picture','post-codigos.user_id'
+      'users.name','users.email','user-data.profile_picture','post-codigos.user_id'
       )->where('post-codigos.user_id','=',$userid)
       ->orderBy('post-codigos.id','desc')->take(2)->get();
       return $code_post;

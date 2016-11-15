@@ -17,9 +17,9 @@
 <!-- Códigos -->
 <div class="box3" class="media" ng-repeat="code in postCode">
       <div class="media-left" ng-click="viewCode(code.id)">
-        <a href="perfil.html">
+        
           <img ng-src="{{code.profile_picture}}" class="img-rounded post-picture" alt="">
-        </a>
+       
       </div>
       <div class="media-body">
         <h4 class="media-heading name-post"> {{code.name}} </h4>
@@ -37,7 +37,8 @@
 		  <!-- <aside> <ul> <li> Códigos </li> </ul> </aside> -->
         </div>
         <div class="media-body">
-          <a ng-href="/publicprofile={{new.email}}"><h4 class="media-heading name-post"> {{new.name}}</a><a ng-href="/publicprofile={{new.memail}}"><span ng-if="new.name != new.mname">: {{new.mname}}</h4></a>
+
+          <a ng-href="/publicprofile={{new.email}}"><h4 class="media-heading name-post"> {{new.name}}</a> <a ng-href="/publicprofile={{new.memail}}"><span ng-if="new.name != new.mname">: {{new.mname}}</h4></a> 
 		  <p class="post-news">
             {{new.text}}
           </p>
