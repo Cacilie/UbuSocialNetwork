@@ -1,11 +1,11 @@
 <div class="col-md-11">
   <div class="form-group">
-    Título<input type="text" class="form-control" ng-model="codeInfo.titulo" >
+    Título<input type="text" placeholder="Nombre del programa" class="form-control" ng-model="codeInfo.titulo" >
   </div>
 </div>
 <div class="col-md-6">
   <div class="form-group">
-    Seleccionar Sintaxis
+    Seleccionar el lenguaje
     <select class="form-control" cols="50" id="sel1" ng-model="codeInfo.sintaxis" ng-change="cambiarSintaxis(codeInfo.sintaxis)">
       <option value="html">HTML</option>
       <option value="php">PHP</option>
@@ -16,18 +16,17 @@
   </div>
 </div>
 <div class="col-md-11">
-  <!--
-  <div class="form-group">
-            <textarea name="post" placeholder="Pega tu código aquí" rows="12" class=" tArea form-control " ng-model="codeInfo.codigo" class="form-control"></textarea>
-  </div>
--->
-<div id="editor" class=" form-control ">
-
+<!--
+<div class="form-group">
+  <textarea name="post" placeholder="Pega tu código aquí" rows="12" class=" tArea form-control " ng-model="codeInfo.codigo" class="form-control"></textarea>
+</div> -->
+<div id="editor" class="form-control ">
 </div>
 
 </div>
+
 <div class="col-md-2">
-  <button ng-click="sendCode()" class="btn btn-large btn-warning" name="button">Publicar</button>
+  <br><button ng-click="sendCode()" class="btn btn-large btn-info" name="button">Publicar</button>
 </div>
 
 
@@ -39,17 +38,15 @@
   outline:none;
   resize:vertical;
 }
-
-
-#editor {
+#editor{
         position: relative;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
         height:30em;
-    }
+}
 </style>
-<script>
 
+<script>
 </script>

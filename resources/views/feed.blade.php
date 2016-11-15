@@ -42,7 +42,7 @@
                <div class="form-group" >
                  <input type="text" class="form-control" id="ingenieur" placeholder="Buscar" >
                </div>
-               <button ng-click="irPerfil()" class="btn btn-warning" id="btntr"><span class="glyphicon glyphicon-search"></span></button>
+               <button ng-click="irPerfil()" class="btn btn-info" id="btntr"><span class="glyphicon glyphicon-search"></span></button>
              </form>
              <ul class="nav navbar-nav navbar-right">
                <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
@@ -166,7 +166,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <font color= "black"><h4 class="modal-title">Comparte Códico</h4>
+              <font color= "black"><h4 class="modal-title">Comparte Código</h4>
             </div>
             <div class="modal-body">
               <div class="form-group">
