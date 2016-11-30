@@ -95,7 +95,7 @@ $scope.anadir = {usuario:''}
    $http.post('group/delete_member',{id:id})
    .success(function(data){
      if(data == 0){
-       swal("A sido eliminado")
+       swal("Ha sido eliminado")
      }
      if(data == 1){
        swal("No tienes permisos para eliminar miembros")

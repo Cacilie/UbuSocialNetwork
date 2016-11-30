@@ -194,7 +194,7 @@ userperfilapp.controller('PostCodeController',['$scope','$http',function($scope,
     $http.post('postcode',$scope.codeInfo)
     .success(function(data){
       console.log(data);
-      swal("Publicado con exito")
+      swal("Publicado con éxito")
       $scope.codeInfo = {titulo:'',codigo:'',sintaxis:'c'};
     })
     .error(function(err){
